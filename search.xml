@@ -64,4 +64,22 @@
         <tag>Hexo</tag>
       </tags>
   </entry>
+  <entry>
+    <title>project_architecture</title>
+    <url>/blog/2021/12/07/project-architecture/</url>
+    <content><![CDATA[<h1 id="DL-项目的组织架构"><a href="#DL-项目的组织架构" class="headerlink" title="DL 项目的组织架构"></a>DL 项目的组织架构</h1><span id="more"></span>
+
+<p>项目结构如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 建议使用文件夹，如果文件少的话，单个文件也是可以的</span></span><br><span class="line">ProjectDir:</span><br><span class="line">- dataDir</span><br><span class="line">	-- datafile (Cifar10)</span><br><span class="line">- modelsDir <span class="keyword">or</span> model.py  <span class="comment"># 存放模型文件</span></span><br><span class="line">	-- __init__.py (空文件即可)</span><br><span class="line">	-- VGG18.py</span><br><span class="line">	-- resnet18.py</span><br><span class="line">	-- resnet50.py</span><br><span class="line">- utilsDir <span class="keyword">or</span> utils.py  <span class="comment"># 存放一些工具文件</span></span><br><span class="line">	-- __init__.py</span><br><span class="line">	-- plots.py</span><br><span class="line">	-- loss.py</span><br><span class="line">	-- dataset.py</span><br><span class="line">	-- download.py</span><br><span class="line">- train.py (要包含validation的功能)  <span class="comment"># 训练文件</span></span><br><span class="line">- test.py <span class="keyword">or</span> <span class="built_in">eval</span>.py  <span class="comment"># 测试文件</span></span><br><span class="line">- README.md  <span class="comment"># 项目介绍文件</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">...... 下面这些还不太懂</span><br><span class="line">- detect.py</span><br><span class="line">- export.py</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Project Architecture</category>
+      </categories>
+      <tags>
+        <tag>pthon</tag>
+        <tag>AI</tag>
+        <tag>architecture</tag>
+      </tags>
+  </entry>
 </search>
