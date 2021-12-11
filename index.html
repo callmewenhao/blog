@@ -155,6 +155,98 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://callmewenhao.github.io/blog/2021/12/11/pyYAML/pyYAML/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/%E7%8E%AF%E5%A4%AA%E5%B9%B3%E6%B4%8B1.jpg">
+      <meta itemprop="name" content="callmewenhao">
+      <meta itemprop="description" content="莫语常言道知足，万事至终总是空。理想现实一线隔，心无旁骛脚踏实。谁无暴风劲雨时，守得云开见月明。花开复见却飘零，残憾莫使今生留。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="the blog of wenhao!">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2021/12/11/pyYAML/pyYAML/" class="post-title-link" itemprop="url">pyYAML Usage</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-12-11 15:44:18 / 修改时间：16:20:03" itemprop="dateCreated datePublished" datetime="2021-12-11T15:44:18+08:00">2021-12-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="pyYAML-Usage"><a href="#pyYAML-Usage" class="headerlink" title="pyYAML Usage"></a>pyYAML Usage</h1><p>使用 yaml 文件配置模型以及训练参数，方便调参数！😉</p>
+<p>借鉴文章：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/42678768">https://zhuanlan.zhihu.com/p/42678768</a></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install PyYAML</span><br></pre></td></tr></table></figure>
+
+<h2 id="YAML-基本语法"><a href="#YAML-基本语法" class="headerlink" title="YAML 基本语法"></a>YAML 基本语法</h2><ul>
+<li><p>与Python一样采用缩进区分层级，需要同一层级文件缩进相同，但是不能用TAB，只能使用空格；</p>
+</li>
+<li><p><code>#</code> 表示注释，从它开始到行尾都被忽略；</p>
+</li>
+<li><p>大小写敏感；</p>
+</li>
+<li><p> <code>-</code> 开头，整个文件会被转换为list，其中 <code>-</code> 后的内容属于一个字典；</p>
+</li>
+<li><p><code>:</code> 前后的内容转换为 dictionary 的键值对；</p>
+</li>
+<li><p>单引号内的内容按照字符串输出，不会变成转移字符，双引号内内容存在转义字符会转换</p>
+</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/blog/2021/12/11/pyYAML/pyYAML/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://callmewenhao.github.io/blog/2021/12/11/pip-usage/pip-usage/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -533,7 +625,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/blog/archives">
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -546,7 +638,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/blog/tags/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

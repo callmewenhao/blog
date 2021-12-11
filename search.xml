@@ -65,6 +65,23 @@
       </tags>
   </entry>
   <entry>
+    <title>project_architecture</title>
+    <url>/blog/2021/12/07/project-architecture/</url>
+    <content><![CDATA[<h1 id="DL-项目的组织架构"><a href="#DL-项目的组织架构" class="headerlink" title="DL 项目的组织架构"></a>DL 项目的组织架构</h1><span id="more"></span>
+
+<p>项目结构如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 建议使用文件夹，如果文件少的话，单个文件也是可以的</span></span><br><span class="line">ProjectDir:</span><br><span class="line">- dataDir</span><br><span class="line">	-- datafile (Cifar10)</span><br><span class="line">- modelsDir <span class="keyword">or</span> model.py  <span class="comment"># 存放模型文件</span></span><br><span class="line">	-- __init__.py (空文件即可)</span><br><span class="line">	-- VGG18.py</span><br><span class="line">	-- resnet18.py</span><br><span class="line">	-- resnet50.py</span><br><span class="line">- utilsDir <span class="keyword">or</span> utils.py  <span class="comment"># 存放一些工具文件</span></span><br><span class="line">	-- __init__.py</span><br><span class="line">	-- plots.py</span><br><span class="line">	-- loss.py</span><br><span class="line">	-- dataset.py</span><br><span class="line">	-- download.py</span><br><span class="line">- train.py (要包含validation的功能)  <span class="comment"># 训练文件</span></span><br><span class="line">- test.py <span class="keyword">or</span> <span class="built_in">eval</span>.py  <span class="comment"># 测试文件</span></span><br><span class="line">- README.md  <span class="comment"># 项目介绍文件</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">...... 下面这些还不太懂</span><br><span class="line">- detect.py</span><br><span class="line">- export.py</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Project Architecture</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>architecture</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>pip usage</title>
     <url>/blog/2021/12/11/pip-usage/pip-usage/</url>
     <content><![CDATA[<h1 id="Pip-Usage"><a href="#Pip-Usage" class="headerlink" title="Pip Usage"></a>Pip Usage</h1><h2 id="pip-基本语法😉"><a href="#pip-基本语法😉" class="headerlink" title="pip 基本语法😉"></a>pip 基本语法😉</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install SomePackage            # latest version</span><br><span class="line">pip install SomePackage==1.0.4     # specific version</span><br><span class="line">pip install &#x27;SomePackage&gt;=1.0.4&#x27;   # minimum version</span><br></pre></td></tr></table></figure>
@@ -95,25 +112,73 @@
         <category>Python</category>
       </categories>
       <tags>
-        <tag>pip</tag>
         <tag>python</tag>
+        <tag>pip</tag>
       </tags>
   </entry>
   <entry>
-    <title>project_architecture</title>
-    <url>/blog/2021/12/07/project-architecture/</url>
-    <content><![CDATA[<h1 id="DL-项目的组织架构"><a href="#DL-项目的组织架构" class="headerlink" title="DL 项目的组织架构"></a>DL 项目的组织架构</h1><span id="more"></span>
+    <title>pyYAML Usage</title>
+    <url>/blog/2021/12/11/pyYAML/pyYAML/</url>
+    <content><![CDATA[<h1 id="pyYAML-Usage"><a href="#pyYAML-Usage" class="headerlink" title="pyYAML Usage"></a>pyYAML Usage</h1><p>使用 yaml 文件配置模型以及训练参数，方便调参数！😉</p>
+<p>借鉴文章：<a href="https://zhuanlan.zhihu.com/p/42678768">https://zhuanlan.zhihu.com/p/42678768</a></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install PyYAML</span><br></pre></td></tr></table></figure>
 
-<p>项目结构如下：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 建议使用文件夹，如果文件少的话，单个文件也是可以的</span></span><br><span class="line">ProjectDir:</span><br><span class="line">- dataDir</span><br><span class="line">	-- datafile (Cifar10)</span><br><span class="line">- modelsDir <span class="keyword">or</span> model.py  <span class="comment"># 存放模型文件</span></span><br><span class="line">	-- __init__.py (空文件即可)</span><br><span class="line">	-- VGG18.py</span><br><span class="line">	-- resnet18.py</span><br><span class="line">	-- resnet50.py</span><br><span class="line">- utilsDir <span class="keyword">or</span> utils.py  <span class="comment"># 存放一些工具文件</span></span><br><span class="line">	-- __init__.py</span><br><span class="line">	-- plots.py</span><br><span class="line">	-- loss.py</span><br><span class="line">	-- dataset.py</span><br><span class="line">	-- download.py</span><br><span class="line">- train.py (要包含validation的功能)  <span class="comment"># 训练文件</span></span><br><span class="line">- test.py <span class="keyword">or</span> <span class="built_in">eval</span>.py  <span class="comment"># 测试文件</span></span><br><span class="line">- README.md  <span class="comment"># 项目介绍文件</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">...... 下面这些还不太懂</span><br><span class="line">- detect.py</span><br><span class="line">- export.py</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="YAML-基本语法"><a href="#YAML-基本语法" class="headerlink" title="YAML 基本语法"></a>YAML 基本语法</h2><ul>
+<li><p>与Python一样采用缩进区分层级，需要同一层级文件缩进相同，但是不能用TAB，只能使用空格；</p>
+</li>
+<li><p><code>#</code> 表示注释，从它开始到行尾都被忽略；</p>
+</li>
+<li><p>大小写敏感；</p>
+</li>
+<li><p> <code>-</code> 开头，整个文件会被转换为list，其中 <code>-</code> 后的内容属于一个字典；</p>
+</li>
+<li><p><code>:</code> 前后的内容转换为 dictionary 的键值对；</p>
+</li>
+<li><p>单引号内的内容按照字符串输出，不会变成转移字符，双引号内内容存在转义字符会转换</p>
+</li>
+</ul>
+<span id="more"></span>
 
+<h3 id="list"><a href="#list" class="headerlink" title="list"></a>list</h3><blockquote>
+<p>yaml_example_list.yaml 内容 &amp; .py：</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># exchange to list</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">a</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">b</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">c</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import yaml</span><br><span class="line"></span><br><span class="line">f = open(&#x27;yaml_example_list.yml&#x27;, encoding=&#x27;utf-8&#x27;)</span><br><span class="line">yaml_log = yaml.load(f)</span><br><span class="line">print(type(yaml_log))</span><br><span class="line">print(yaml_log)</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;class &#x27;list&#x27;&gt;</span><br><span class="line">[&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;]</span><br></pre></td></tr></table></figure>
+
+<h3 id="dictionary"><a href="#dictionary" class="headerlink" title="dictionary"></a>dictionary</h3><blockquote>
+<p>yaml_example_dict.yml &amp; .py</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># exchange to dictionary</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">zhangsan</span></span><br><span class="line"><span class="attr">age:</span> <span class="number">30</span></span><br><span class="line"><span class="attr">nation:</span> <span class="string">China</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import yaml</span><br><span class="line"></span><br><span class="line">f = open(&#x27;yaml_example_dict.yml&#x27;, encoding=&#x27;utf-8&#x27;)</span><br><span class="line">yaml_log = yaml.load(f)</span><br><span class="line">print(type(yaml_log))</span><br><span class="line">print(yaml_log)</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;class &#x27;dict&#x27;&gt;</span><br><span class="line">&#123;&#x27;name&#x27;: &#x27;zhangsan&#x27;, &#x27;age&#x27;: 30, &#x27;nation&#x27;: &#x27;China&#x27;&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="混合转换"><a href="#混合转换" class="headerlink" title="混合转换"></a>混合转换</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># exchange to dictionary</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">zhangsan</span></span><br><span class="line">  <span class="attr">age:</span> <span class="number">30</span></span><br><span class="line">  <span class="attr">nation:</span> <span class="string">China</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">lisi</span></span><br><span class="line">  <span class="attr">age:</span> <span class="number">20</span></span><br><span class="line">  <span class="attr">nation:</span> <span class="string">China</span></span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;class &#x27;list&#x27;&gt;</span><br><span class="line">[&#123;&#x27;name&#x27;: &#x27;zhangsan&#x27;, &#x27;age&#x27;: 30, &#x27;nation&#x27;: &#x27;China&#x27;&#125;,</span><br><span class="line"> &#123;&#x27;name&#x27;: &#x27;lisi&#x27;, &#x27;age&#x27;: 20, &#x27;nation&#x27;: &#x27;China&#x27;&#125;]</span><br></pre></td></tr></table></figure>
+
+<h2 id="pyYAML-Usage-1"><a href="#pyYAML-Usage-1" class="headerlink" title="pyYAML Usage"></a>pyYAML Usage</h2><h3 id="import-package"><a href="#import-package" class="headerlink" title="import package"></a>import package</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> yaml  <span class="comment"># import this package</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="load"><a href="#load" class="headerlink" title="load()"></a>load()</h3><blockquote>
+<p>加载 yaml 文件，返回一个 pyYAML 对象，这个对象是一个包含了键值对的 <code>list</code> 或 <code>dict</code></p>
+</blockquote>
+<p>我们一般使用 <code>load()</code> 就够了</p>
+<h3 id="dump"><a href="#dump" class="headerlink" title="dump()"></a>dump()</h3><blockquote>
+<p>将键值对，转换成 yaml 格式</p>
+</blockquote>
 ]]></content>
       <categories>
-        <category>Project Architecture</category>
+        <category>Python</category>
       </categories>
       <tags>
-        <tag>python</tag>
-        <tag>architecture</tag>
+        <tag>YAML</tag>
       </tags>
   </entry>
 </search>
