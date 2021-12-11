@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hello World</title>
+    <url>/blog/2021/12/01/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<span id="more"></span>
+
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MarkDown 语法</title>
     <url>/blog/2021/11/28/MarkDown%20introduce/</url>
     <content><![CDATA[<p>字体颜色：<font color=Blue>Test</font></p>
@@ -36,32 +62,6 @@
       </categories>
       <tags>
         <tag>MarkDown</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/blog/2021/12/01/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<span id="more"></span>
-
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -140,21 +140,19 @@
 </li>
 </ul>
 <h3 id="list"><a href="#list" class="headerlink" title="list"></a>list</h3><blockquote>
-<p>yaml_example_list.yaml 内容 &amp; .py：</p>
+<p>parameters.yaml 内容 &amp; .py：</p>
 </blockquote>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># exchange to list</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">a</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">b</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">c</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import yaml</span><br><span class="line"></span><br><span class="line">f = open(&#x27;yaml_example_list.yml&#x27;, encoding=&#x27;utf-8&#x27;)</span><br><span class="line">yaml_log = yaml.load(f)</span><br><span class="line">print(type(yaml_log))</span><br><span class="line">print(yaml_log)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> yaml</span><br><span class="line"><span class="keyword">from</span> yaml <span class="keyword">import</span> CLoader <span class="keyword">as</span> Loader</span><br><span class="line"></span><br><span class="line">f = <span class="built_in">open</span>(<span class="string">&#x27;parameters.yml&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">para = yaml.load(f, Loader)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(para))</span><br><span class="line"><span class="built_in">print</span>(para)</span><br></pre></td></tr></table></figure>
 
 <p>输出：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;class &#x27;list&#x27;&gt;</span><br><span class="line">[&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;]</span><br></pre></td></tr></table></figure>
 
 <h3 id="dictionary"><a href="#dictionary" class="headerlink" title="dictionary"></a>dictionary</h3><blockquote>
-<p>yaml_example_dict.yml &amp; .py</p>
+<p>.yml &amp; .py</p>
 </blockquote>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># exchange to dictionary</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">zhangsan</span></span><br><span class="line"><span class="attr">age:</span> <span class="number">30</span></span><br><span class="line"><span class="attr">nation:</span> <span class="string">China</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import yaml</span><br><span class="line"></span><br><span class="line">f = open(&#x27;yaml_example_dict.yml&#x27;, encoding=&#x27;utf-8&#x27;)</span><br><span class="line">yaml_log = yaml.load(f)</span><br><span class="line">print(type(yaml_log))</span><br><span class="line">print(yaml_log)</span><br></pre></td></tr></table></figure>
 
 <p>输出：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;class &#x27;dict&#x27;&gt;</span><br><span class="line">&#123;&#x27;name&#x27;: &#x27;zhangsan&#x27;, &#x27;age&#x27;: 30, &#x27;nation&#x27;: &#x27;China&#x27;&#125;</span><br></pre></td></tr></table></figure>
@@ -170,6 +168,8 @@
 <p>加载 yaml 文件，返回一个 pyYAML 对象，这个对象是一个包含了键值对的 <code>list</code> 或 <code>dict</code></p>
 </blockquote>
 <p>我们一般使用 <code>load()</code> 就够了</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> yaml</span><br><span class="line"><span class="keyword">from</span> yaml <span class="keyword">import</span> CLoader <span class="keyword">as</span> Loader</span><br><span class="line"></span><br><span class="line">f = <span class="built_in">open</span>(<span class="string">&#x27;parameters.yml&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">para = yaml.load(f, Loader)</span><br><span class="line">total_epoch = para[<span class="string">&#x27;total_epochs&#x27;</span>]</span><br><span class="line">batch_size = para[<span class="string">&#x27;batch_size&#x27;</span>]</span><br><span class="line">learning_rate = <span class="built_in">float</span>(para[<span class="string">&#x27;lr&#x27;</span>])</span><br><span class="line">target_acc = para[<span class="string">&#x27;target_acc&#x27;</span>]</span><br><span class="line">model_name = para[<span class="string">&#x27;model&#x27;</span>]</span><br><span class="line">dataset = para[<span class="string">&#x27;dataset&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
 <h3 id="dump"><a href="#dump" class="headerlink" title="dump()"></a>dump()</h3><blockquote>
 <p>将键值对，转换成 yaml 格式</p>
 </blockquote>
