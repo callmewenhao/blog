@@ -121,6 +121,8 @@
     <url>/blog/2021/12/11/pyYAML/pyYAML/</url>
     <content><![CDATA[<h1 id="pyYAML-Usage"><a href="#pyYAML-Usage" class="headerlink" title="pyYAML Usage"></a>pyYAML Usage</h1><p>使用 yaml 文件配置模型以及训练参数，方便调参数！😉</p>
 <p>借鉴文章：<a href="https://zhuanlan.zhihu.com/p/42678768">https://zhuanlan.zhihu.com/p/42678768</a></p>
+<span id="more"></span>
+
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install PyYAML</span><br></pre></td></tr></table></figure>
 
 <h2 id="YAML-基本语法"><a href="#YAML-基本语法" class="headerlink" title="YAML 基本语法"></a>YAML 基本语法</h2><ul>
@@ -137,8 +139,6 @@
 <li><p>单引号内的内容按照字符串输出，不会变成转移字符，双引号内内容存在转义字符会转换</p>
 </li>
 </ul>
-<span id="more"></span>
-
 <h3 id="list"><a href="#list" class="headerlink" title="list"></a>list</h3><blockquote>
 <p>yaml_example_list.yaml 内容 &amp; .py：</p>
 </blockquote>
