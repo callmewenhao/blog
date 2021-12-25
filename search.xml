@@ -92,7 +92,107 @@
       </tags>
   </entry>
   <entry>
-    <title></title>
+    <title>pip usage</title>
+    <url>/blog/2021/12/11/pip-usage/pip-usage/</url>
+    <content><![CDATA[<h1 id="Pip-Usage"><a href="#Pip-Usage" class="headerlink" title="Pip Usage"></a>Pip Usage</h1><h2 id="pip-基本语法😉"><a href="#pip-基本语法😉" class="headerlink" title="pip 基本语法😉"></a>pip 基本语法😉</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install SomePackage            # latest version</span><br><span class="line">pip install SomePackage==1.0.4     # specific version</span><br><span class="line">pip install &#x27;SomePackage&gt;=1.0.4&#x27;   # minimum version</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<h2 id="pip-高级用法👍"><a href="#pip-高级用法👍" class="headerlink" title="pip 高级用法👍"></a>pip 高级用法👍</h2><p>编写 package 版本文件 <code>requirements.txt</code> (●’◡’●)</p>
+<h3 id="当前已装库-list"><a href="#当前已装库-list" class="headerlink" title="当前已装库 list"></a>当前已装库 list</h3><p><code>pip freeze</code> 可以实现：获得项目运行时，所需安装库的固定版本</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip freeze &gt; requirements.txt</span><br></pre></td></tr></table></figure>
+
+<p>运行该语句后，在项目目录会出现 <code>requirements.txt</code> 其中包含环境中的各种 <code>package</code></p>
+<h3 id="安装语法🎶"><a href="#安装语法🎶" class="headerlink" title="安装语法🎶"></a>安装语法🎶</h3><p><code>pip install -r</code> 将会自动安装 <code>requirements.txt</code> 中的所有 <code>package</code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure>
+
+<h3 id="requirements-txt-结构"><a href="#requirements-txt-结构" class="headerlink" title="requirements.txt 结构"></a>requirements.txt 结构</h3><ul>
+<li><p>Comments：A line that begins with <code>#</code> is treated as a comment and ignored.</p>
+</li>
+<li><p>Encoding：Requirements files are <code>utf-8</code> encoding by default</p>
+</li>
+<li><p>Line continuations（续行）：A line ending in an unescaped <code>\</code> is treated as a line continuation</p>
+</li>
+</ul>
+<h3 id="requirements-txt-例"><a href="#requirements-txt-例" class="headerlink" title="requirements.txt 例"></a>requirements.txt 例</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">###### Requirements with Version Specifiers ######</span></span><br><span class="line"><span class="comment">#   See https://www.python.org/dev/peps/pep-0440/#version-specifiers</span></span><br><span class="line">docopt == <span class="number">0.6</span><span class="number">.1</span>             <span class="comment"># Version Matching. Must be version 0.6.1</span></span><br><span class="line">keyring &gt;= <span class="number">4.1</span><span class="number">.1</span>            <span class="comment"># Minimum version 4.1.1</span></span><br><span class="line">coverage != <span class="number">3.5</span>             <span class="comment"># Version Exclusion. Anything except version 3.5</span></span><br><span class="line">Mopidy-Dirble ~= <span class="number">1.1</span>        <span class="comment"># Compatible release. Same as &gt;= 1.1, == 1.*</span></span><br></pre></td></tr></table></figure>
+
+<p><a href="https://github.com/ultralytics/yolov5/blob/master/requirements.txt">一个例子</a></p>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>pip</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>pyYAML Usage</title>
+    <url>/blog/2021/12/11/pyYAML/pyYAML/</url>
+    <content><![CDATA[<h1 id="pyYAML-Usage"><a href="#pyYAML-Usage" class="headerlink" title="pyYAML Usage"></a>pyYAML Usage</h1><p>使用 yaml 文件配置模型以及训练参数，方便调参数！😉</p>
+<p>借鉴文章：<a href="https://zhuanlan.zhihu.com/p/42678768">https://zhuanlan.zhihu.com/p/42678768</a></p>
+<span id="more"></span>
+
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install PyYAML</span><br></pre></td></tr></table></figure>
+
+<h2 id="YAML-基本语法"><a href="#YAML-基本语法" class="headerlink" title="YAML 基本语法"></a>YAML 基本语法</h2><ul>
+<li><p>与Python一样采用缩进区分层级，需要同一层级文件缩进相同，但是不能用TAB，只能使用空格；</p>
+</li>
+<li><p><code>#</code> 表示注释，从它开始到行尾都被忽略；</p>
+</li>
+<li><p>大小写敏感；</p>
+</li>
+<li><p> <code>-</code> 开头，整个文件会被转换为list，其中 <code>-</code> 后的内容属于一个字典；</p>
+</li>
+<li><p><code>:</code> 前后的内容转换为 dictionary 的键值对；</p>
+</li>
+<li><p>单引号内的内容按照字符串输出，不会变成转移字符，双引号内内容存在转义字符会转换</p>
+</li>
+</ul>
+<h3 id="list"><a href="#list" class="headerlink" title="list"></a>list</h3><blockquote>
+<p>parameters.yaml 内容 &amp; .py：</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># exchange to list</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">a</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">b</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">c</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> yaml</span><br><span class="line"><span class="keyword">from</span> yaml <span class="keyword">import</span> CLoader <span class="keyword">as</span> Loader</span><br><span class="line"></span><br><span class="line">f = <span class="built_in">open</span>(<span class="string">&#x27;parameters.yml&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">para = yaml.load(f, Loader)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(para))</span><br><span class="line"><span class="built_in">print</span>(para)</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;class &#x27;list&#x27;&gt;</span><br><span class="line">[&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;]</span><br></pre></td></tr></table></figure>
+
+<h3 id="dictionary"><a href="#dictionary" class="headerlink" title="dictionary"></a>dictionary</h3><blockquote>
+<p>.yml &amp; .py</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># exchange to dictionary</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">zhangsan</span></span><br><span class="line"><span class="attr">age:</span> <span class="number">30</span></span><br><span class="line"><span class="attr">nation:</span> <span class="string">China</span></span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;class &#x27;dict&#x27;&gt;</span><br><span class="line">&#123;&#x27;name&#x27;: &#x27;zhangsan&#x27;, &#x27;age&#x27;: 30, &#x27;nation&#x27;: &#x27;China&#x27;&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="混合转换"><a href="#混合转换" class="headerlink" title="混合转换"></a>混合转换</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># exchange to dictionary</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">zhangsan</span></span><br><span class="line">  <span class="attr">age:</span> <span class="number">30</span></span><br><span class="line">  <span class="attr">nation:</span> <span class="string">China</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">lisi</span></span><br><span class="line">  <span class="attr">age:</span> <span class="number">20</span></span><br><span class="line">  <span class="attr">nation:</span> <span class="string">China</span></span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;class &#x27;list&#x27;&gt;</span><br><span class="line">[&#123;&#x27;name&#x27;: &#x27;zhangsan&#x27;, &#x27;age&#x27;: 30, &#x27;nation&#x27;: &#x27;China&#x27;&#125;,</span><br><span class="line"> &#123;&#x27;name&#x27;: &#x27;lisi&#x27;, &#x27;age&#x27;: 20, &#x27;nation&#x27;: &#x27;China&#x27;&#125;]</span><br></pre></td></tr></table></figure>
+
+<h2 id="pyYAML-Usage-1"><a href="#pyYAML-Usage-1" class="headerlink" title="pyYAML Usage"></a>pyYAML Usage</h2><h3 id="import-package"><a href="#import-package" class="headerlink" title="import package"></a>import package</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> yaml  <span class="comment"># import this package</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="load"><a href="#load" class="headerlink" title="load()"></a>load()</h3><blockquote>
+<p>加载 yaml 文件，返回一个 pyYAML 对象，这个对象是一个包含了键值对的 <code>list</code> 或 <code>dict</code></p>
+</blockquote>
+<p>我们一般使用 <code>load()</code> 就够了</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> yaml</span><br><span class="line"><span class="keyword">from</span> yaml <span class="keyword">import</span> CLoader <span class="keyword">as</span> Loader</span><br><span class="line"></span><br><span class="line">f = <span class="built_in">open</span>(<span class="string">&#x27;parameters.yml&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">para = yaml.load(f, Loader)</span><br><span class="line">total_epoch = para[<span class="string">&#x27;total_epochs&#x27;</span>]</span><br><span class="line">batch_size = para[<span class="string">&#x27;batch_size&#x27;</span>]</span><br><span class="line">learning_rate = <span class="built_in">float</span>(para[<span class="string">&#x27;lr&#x27;</span>])</span><br><span class="line">target_acc = para[<span class="string">&#x27;target_acc&#x27;</span>]</span><br><span class="line">model_name = para[<span class="string">&#x27;model&#x27;</span>]</span><br><span class="line">dataset = para[<span class="string">&#x27;dataset&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+<h3 id="dump"><a href="#dump" class="headerlink" title="dump()"></a>dump()</h3><blockquote>
+<p>将键值对，转换成 yaml 格式</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>YAML</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
     <url>/blog/2021/12/25/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/1.0%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<h1 id="迁移学习和微调（keras）"><a href="#迁移学习和微调（keras）" class="headerlink" title="迁移学习和微调（keras）"></a>迁移学习和微调（keras）</h1><blockquote>
 <p>TODO：</p>
@@ -253,105 +353,12 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Unfreeze the base_model. Note that it keeps running in inference mode</span></span><br><span class="line"><span class="comment"># since we passed `training=False` when calling it. This means that</span></span><br><span class="line"><span class="comment"># the batchnorm layers will not update their batch statistics.</span></span><br><span class="line"><span class="comment"># This prevents the batchnorm layers from undoing all the training</span></span><br><span class="line"><span class="comment"># we&#x27;ve done so far.</span></span><br><span class="line">base_model.trainable = <span class="literal">True</span></span><br><span class="line">model.summary()</span><br><span class="line"></span><br><span class="line">model.<span class="built_in">compile</span>(</span><br><span class="line">    optimizer=keras.optimizers.Adam(<span class="number">1e-5</span>),  <span class="comment"># Low learning rate</span></span><br><span class="line">    loss=keras.losses.BinaryCrossentropy(from_logits=<span class="literal">True</span>),</span><br><span class="line">    metrics=[keras.metrics.BinaryAccuracy()],</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">epochs = <span class="number">10</span></span><br><span class="line">model.fit(train_ds, epochs=epochs, validation_data=validation_ds)</span><br></pre></td></tr></table></figure>
 
 ]]></content>
-  </entry>
-  <entry>
-    <title>pip usage</title>
-    <url>/blog/2021/12/11/pip-usage/pip-usage/</url>
-    <content><![CDATA[<h1 id="Pip-Usage"><a href="#Pip-Usage" class="headerlink" title="Pip Usage"></a>Pip Usage</h1><h2 id="pip-基本语法😉"><a href="#pip-基本语法😉" class="headerlink" title="pip 基本语法😉"></a>pip 基本语法😉</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install SomePackage            # latest version</span><br><span class="line">pip install SomePackage==1.0.4     # specific version</span><br><span class="line">pip install &#x27;SomePackage&gt;=1.0.4&#x27;   # minimum version</span><br></pre></td></tr></table></figure>
-
-<span id="more"></span>
-
-<h2 id="pip-高级用法👍"><a href="#pip-高级用法👍" class="headerlink" title="pip 高级用法👍"></a>pip 高级用法👍</h2><p>编写 package 版本文件 <code>requirements.txt</code> (●’◡’●)</p>
-<h3 id="当前已装库-list"><a href="#当前已装库-list" class="headerlink" title="当前已装库 list"></a>当前已装库 list</h3><p><code>pip freeze</code> 可以实现：获得项目运行时，所需安装库的固定版本</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip freeze &gt; requirements.txt</span><br></pre></td></tr></table></figure>
-
-<p>运行该语句后，在项目目录会出现 <code>requirements.txt</code> 其中包含环境中的各种 <code>package</code></p>
-<h3 id="安装语法🎶"><a href="#安装语法🎶" class="headerlink" title="安装语法🎶"></a>安装语法🎶</h3><p><code>pip install -r</code> 将会自动安装 <code>requirements.txt</code> 中的所有 <code>package</code></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure>
-
-<h3 id="requirements-txt-结构"><a href="#requirements-txt-结构" class="headerlink" title="requirements.txt 结构"></a>requirements.txt 结构</h3><ul>
-<li><p>Comments：A line that begins with <code>#</code> is treated as a comment and ignored.</p>
-</li>
-<li><p>Encoding：Requirements files are <code>utf-8</code> encoding by default</p>
-</li>
-<li><p>Line continuations（续行）：A line ending in an unescaped <code>\</code> is treated as a line continuation</p>
-</li>
-</ul>
-<h3 id="requirements-txt-例"><a href="#requirements-txt-例" class="headerlink" title="requirements.txt 例"></a>requirements.txt 例</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">###### Requirements with Version Specifiers ######</span></span><br><span class="line"><span class="comment">#   See https://www.python.org/dev/peps/pep-0440/#version-specifiers</span></span><br><span class="line">docopt == <span class="number">0.6</span><span class="number">.1</span>             <span class="comment"># Version Matching. Must be version 0.6.1</span></span><br><span class="line">keyring &gt;= <span class="number">4.1</span><span class="number">.1</span>            <span class="comment"># Minimum version 4.1.1</span></span><br><span class="line">coverage != <span class="number">3.5</span>             <span class="comment"># Version Exclusion. Anything except version 3.5</span></span><br><span class="line">Mopidy-Dirble ~= <span class="number">1.1</span>        <span class="comment"># Compatible release. Same as &gt;= 1.1, == 1.*</span></span><br></pre></td></tr></table></figure>
-
-<p><a href="https://github.com/ultralytics/yolov5/blob/master/requirements.txt">一个例子</a></p>
-]]></content>
       <categories>
-        <category>Python</category>
+        <category>DeepLearning</category>
       </categories>
       <tags>
-        <tag>python</tag>
-        <tag>pip</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>pyYAML Usage</title>
-    <url>/blog/2021/12/11/pyYAML/pyYAML/</url>
-    <content><![CDATA[<h1 id="pyYAML-Usage"><a href="#pyYAML-Usage" class="headerlink" title="pyYAML Usage"></a>pyYAML Usage</h1><p>使用 yaml 文件配置模型以及训练参数，方便调参数！😉</p>
-<p>借鉴文章：<a href="https://zhuanlan.zhihu.com/p/42678768">https://zhuanlan.zhihu.com/p/42678768</a></p>
-<span id="more"></span>
-
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install PyYAML</span><br></pre></td></tr></table></figure>
-
-<h2 id="YAML-基本语法"><a href="#YAML-基本语法" class="headerlink" title="YAML 基本语法"></a>YAML 基本语法</h2><ul>
-<li><p>与Python一样采用缩进区分层级，需要同一层级文件缩进相同，但是不能用TAB，只能使用空格；</p>
-</li>
-<li><p><code>#</code> 表示注释，从它开始到行尾都被忽略；</p>
-</li>
-<li><p>大小写敏感；</p>
-</li>
-<li><p> <code>-</code> 开头，整个文件会被转换为list，其中 <code>-</code> 后的内容属于一个字典；</p>
-</li>
-<li><p><code>:</code> 前后的内容转换为 dictionary 的键值对；</p>
-</li>
-<li><p>单引号内的内容按照字符串输出，不会变成转移字符，双引号内内容存在转义字符会转换</p>
-</li>
-</ul>
-<h3 id="list"><a href="#list" class="headerlink" title="list"></a>list</h3><blockquote>
-<p>parameters.yaml 内容 &amp; .py：</p>
-</blockquote>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># exchange to list</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">a</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">b</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">c</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> yaml</span><br><span class="line"><span class="keyword">from</span> yaml <span class="keyword">import</span> CLoader <span class="keyword">as</span> Loader</span><br><span class="line"></span><br><span class="line">f = <span class="built_in">open</span>(<span class="string">&#x27;parameters.yml&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">para = yaml.load(f, Loader)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(para))</span><br><span class="line"><span class="built_in">print</span>(para)</span><br></pre></td></tr></table></figure>
-
-<p>输出：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;class &#x27;list&#x27;&gt;</span><br><span class="line">[&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;]</span><br></pre></td></tr></table></figure>
-
-<h3 id="dictionary"><a href="#dictionary" class="headerlink" title="dictionary"></a>dictionary</h3><blockquote>
-<p>.yml &amp; .py</p>
-</blockquote>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># exchange to dictionary</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">zhangsan</span></span><br><span class="line"><span class="attr">age:</span> <span class="number">30</span></span><br><span class="line"><span class="attr">nation:</span> <span class="string">China</span></span><br></pre></td></tr></table></figure>
-
-<p>输出：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;class &#x27;dict&#x27;&gt;</span><br><span class="line">&#123;&#x27;name&#x27;: &#x27;zhangsan&#x27;, &#x27;age&#x27;: 30, &#x27;nation&#x27;: &#x27;China&#x27;&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="混合转换"><a href="#混合转换" class="headerlink" title="混合转换"></a>混合转换</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># exchange to dictionary</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">zhangsan</span></span><br><span class="line">  <span class="attr">age:</span> <span class="number">30</span></span><br><span class="line">  <span class="attr">nation:</span> <span class="string">China</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">lisi</span></span><br><span class="line">  <span class="attr">age:</span> <span class="number">20</span></span><br><span class="line">  <span class="attr">nation:</span> <span class="string">China</span></span><br></pre></td></tr></table></figure>
-
-<p>输出：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;class &#x27;list&#x27;&gt;</span><br><span class="line">[&#123;&#x27;name&#x27;: &#x27;zhangsan&#x27;, &#x27;age&#x27;: 30, &#x27;nation&#x27;: &#x27;China&#x27;&#125;,</span><br><span class="line"> &#123;&#x27;name&#x27;: &#x27;lisi&#x27;, &#x27;age&#x27;: 20, &#x27;nation&#x27;: &#x27;China&#x27;&#125;]</span><br></pre></td></tr></table></figure>
-
-<h2 id="pyYAML-Usage-1"><a href="#pyYAML-Usage-1" class="headerlink" title="pyYAML Usage"></a>pyYAML Usage</h2><h3 id="import-package"><a href="#import-package" class="headerlink" title="import package"></a>import package</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> yaml  <span class="comment"># import this package</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="load"><a href="#load" class="headerlink" title="load()"></a>load()</h3><blockquote>
-<p>加载 yaml 文件，返回一个 pyYAML 对象，这个对象是一个包含了键值对的 <code>list</code> 或 <code>dict</code></p>
-</blockquote>
-<p>我们一般使用 <code>load()</code> 就够了</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> yaml</span><br><span class="line"><span class="keyword">from</span> yaml <span class="keyword">import</span> CLoader <span class="keyword">as</span> Loader</span><br><span class="line"></span><br><span class="line">f = <span class="built_in">open</span>(<span class="string">&#x27;parameters.yml&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">para = yaml.load(f, Loader)</span><br><span class="line">total_epoch = para[<span class="string">&#x27;total_epochs&#x27;</span>]</span><br><span class="line">batch_size = para[<span class="string">&#x27;batch_size&#x27;</span>]</span><br><span class="line">learning_rate = <span class="built_in">float</span>(para[<span class="string">&#x27;lr&#x27;</span>])</span><br><span class="line">target_acc = para[<span class="string">&#x27;target_acc&#x27;</span>]</span><br><span class="line">model_name = para[<span class="string">&#x27;model&#x27;</span>]</span><br><span class="line">dataset = para[<span class="string">&#x27;dataset&#x27;</span>]</span><br></pre></td></tr></table></figure>
-
-<h3 id="dump"><a href="#dump" class="headerlink" title="dump()"></a>dump()</h3><blockquote>
-<p>将键值对，转换成 yaml 格式</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>YAML</tag>
+        <tag>TransferLearning</tag>
+        <tag>DeepLearning</tag>
       </tags>
   </entry>
 </search>
