@@ -192,12 +192,10 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
+    <title>Transfer Learning</title>
     <url>/blog/2021/12/25/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/1.0%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<h1 id="迁移学习和微调（keras）"><a href="#迁移学习和微调（keras）" class="headerlink" title="迁移学习和微调（keras）"></a>迁移学习和微调（keras）</h1><blockquote>
-<p>TODO：</p>
-<p>trainable 和 training 的不同点？</p>
-</blockquote>
+    <content><![CDATA[<h1 id="迁移学习和微调（keras）"><a href="#迁移学习和微调（keras）" class="headerlink" title="迁移学习和微调（keras）"></a>迁移学习和微调（keras）</h1><span id="more"></span>
+
 <h2 id="import-setting"><a href="#import-setting" class="headerlink" title="import setting!"></a><strong>import setting!</strong></h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">from</span> tensorflow <span class="keyword">import</span> keras</span><br></pre></td></tr></table></figure>
 
 <h2 id="introduce"><a href="#introduce" class="headerlink" title="introduce"></a>introduce</h2><p><strong>迁移学习</strong>包括获取从一个问题中学习到的特征，然后将这些特征用于新的类似问题。例如，来自已学会识别浣熊的模型的特征可能对建立旨在识别狸猫的模型十分有用。</p>
@@ -359,6 +357,7 @@
       <tags>
         <tag>TransferLearning</tag>
         <tag>DeepLearning</tag>
+        <tag>keras</tag>
       </tags>
   </entry>
 </search>
