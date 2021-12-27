@@ -92,163 +92,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Git usage</title>
-    <url>/blog/2021/12/27/git/git/</url>
-    <content><![CDATA[<h1 id="Git🎈"><a href="#Git🎈" class="headerlink" title="Git🎈"></a>Git🎈</h1><h2 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 建立repo</span></span><br><span class="line">git init  <span class="comment"># 初始化本地repo</span></span><br><span class="line">git <span class="built_in">clone</span> [url]  <span class="comment"># 克隆远程repo到本地</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 连接（移除）远程repo</span></span><br><span class="line">git remote add origin [url]  <span class="comment"># 连接</span></span><br><span class="line">git remote rm origin  <span class="comment"># 移除</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 改branch名</span></span><br><span class="line">git branch -M main</span><br><span class="line"></span><br><span class="line"><span class="comment"># add &amp; commit</span></span><br><span class="line">git add .  <span class="comment"># 提交所有改变到暂存区</span></span><br><span class="line">git add <span class="string">&quot;change 的文件名&quot;</span>  <span class="comment"># 提交单独的改变到暂存区</span></span><br><span class="line">git commit -m <span class="string">&quot;commit comment!&quot;</span>  <span class="comment"># 提交暂存区的内容到repo</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看所有文件或指定文件状态</span></span><br><span class="line"><span class="comment"># 查看所有文件</span></span><br><span class="line">git status</span><br><span class="line"><span class="comment"># 查看指定文件状态</span></span><br><span class="line">git status [filename]</span><br><span class="line"></span><br><span class="line"><span class="comment"># git push</span></span><br><span class="line">git push -u origin master  </span><br><span class="line"><span class="comment"># 将本地的master分支推送到origin主机的master分支。如果master不存在，则会被新建。</span></span><br><span class="line">git push -u origin dev</span><br><span class="line"><span class="comment"># 将本地的dev分支推送到origin主机的dev分支。如果dev不存在，则会被新建。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># git pull == git fetch &amp; merge</span></span><br><span class="line">git pull origin master <span class="comment"># 从远程获取最新版本并merge到本地</span></span><br><span class="line"><span class="comment"># 等于</span></span><br><span class="line">git fetch origin master  <span class="comment"># 从远程获取最新版本到本地，不会自动merge</span></span><br><span class="line">git merge origin/master</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">git fetch origin master:<span class="built_in">test</span>  <span class="comment"># 从远程获取最新的版本到本地的test分支上</span></span><br><span class="line">git diff <span class="built_in">test</span>  <span class="comment"># 之后再进行比较</span></span><br><span class="line">git merge <span class="built_in">test</span>  <span class="comment"># 合并</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="忽略某些文件"><a href="#忽略某些文件" class="headerlink" title="忽略某些文件"></a>忽略某些文件</h2><blockquote>
-<p>有时候不需要把某些文件纳入版本控制中</p>
-</blockquote>
-<p>在repo文件夹下建立 “.gitignore” 文件，此文件有如下规则：</p>
-<ol>
-<li><p>忽略文件中的空行、以井号（#）开始的行也会被忽略</p>
-</li>
-<li><p>可以使用 Linux 通配符。例如：星号（*）代表任意多个字符，问好（?）代表一个字符，方括号（[abc]）代表可选字符范围，大括号（{string1, string2,······}）代表可选的字符串</p>
-</li>
-<li><p>如果名称的最前面有一个感叹号（!），表示例外规则，将不被忽略。</p>
-</li>
-<li><p>如果名称的最前面是一个路径分隔符（/），表示要忽略的文件在此目录下，而子目录中的文件不</p>
-</li>
-<li><p>如果名称的最后面是一个路径分隔符（/），表示要忽略的是此目录下该名称的子目录，而非文件（默认文件或目录都忽略）。</p>
-</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 为注释</span></span><br><span class="line">*.txt  <span class="comment"># 忽略所有.txt结尾的文件，这样的话上传就不会被选中!</span></span><br><span class="line">!lib.txt  <span class="comment"># 但lib.txt除外</span></span><br><span class="line">/temp  <span class="comment"># 仅忽略项目根目录下的TODO文件,不包括其它目录temp</span></span><br><span class="line"><span class="comment"># &quot;/&quot; 前面的被忽略，后面的保留</span></span><br><span class="line">build/  <span class="comment"># 忽略build/目录下的所有文件</span></span><br><span class="line">doc/*.txt  <span class="comment"># 会忽略doc/notes.txt但不包括doc /server/arch.txt</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="配置SSH公钥以及创建repo"><a href="#配置SSH公钥以及创建repo" class="headerlink" title="配置SSH公钥以及创建repo"></a>配置SSH公钥以及创建repo</h2><p><a href="https://blog.csdn.net/u013778905/article/details/83501204">look there!</a></p>
-<p>创建repo时，可选许可证：</p>
-<ol>
-<li>开源可以随意转载</li>
-<li>开源但不可商用</li>
-<li>等等</li>
-</ol>
-<h2 id="Git-分支"><a href="#Git-分支" class="headerlink" title="Git 分支"></a>Git 分支</h2><h3 id="常用分支命令"><a href="#常用分支命令" class="headerlink" title="常用分支命令"></a>常用分支命令</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 列出所有本地分支</span></span><br><span class="line">git branch</span><br><span class="line"></span><br><span class="line"><span class="comment"># 列出所有远程分支</span></span><br><span class="line">git branch -r</span><br><span class="line"></span><br><span class="line"><span class="comment"># 新建一个分支，但依然停留在当前分支</span></span><br><span class="line">git branch [branch name]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 新建一个分支，并切换到该分支</span></span><br><span class="line">git checkout -b [branch]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 合并分支到当前分支</span></span><br><span class="line">git merge [branch]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除分支</span></span><br><span class="line">git branch -d [branch name]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除远程分支</span></span><br><span class="line">git push origin --delete [branch name]</span><br><span class="line">git branch -dr [remote/branch]</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>如果同一个文件在合并时都被修改了，则会引起冲突。解决办法是修改冲突文件后重新提交，选择保留它的代码还是你的代码！</p>
-<p>简言之，如果冲突了就需要协商</p>
-</blockquote>
-<h3 id="Git-分支管理💥"><a href="#Git-分支管理💥" class="headerlink" title="Git 分支管理💥"></a>Git 分支管理💥</h3><h4 id="文件添加、移除的操作"><a href="#文件添加、移除的操作" class="headerlink" title="文件添加、移除的操作"></a>文件添加、移除的操作</h4><ul>
-<li>当前文件夹下：git.md、本地分支：main，远程分支：origin/main</li>
-</ul>
-<img src="figures\1.png" style="zoom:80%;" />
-
-<ul>
-<li><p>新建分支：dev，添加文件 dev.txt，并将其 add &amp; commit</p>
-<p>在 dev 分支下，有文件：dev.txt &amp; figures &amp; git.md</p>
-<p>但是在 main 分支下，看不到 dev.txt</p>
-</li>
-</ul>
-<img src="figures\2.png" style="zoom:80%;" />
-
-<img src="figures\3.png" alt="image-20211227125139440" style="zoom:80%;" />
-
-<ul>
-<li><p>合并分支：将 main 和 dev 合并！<code>git merge [branch name]</code></p>
-<p>在 main 分支中，可以看到 dev.txt</p>
-</li>
-</ul>
-<img src="figures\4.png" style="zoom:80%;" />
-
-<ul>
-<li>删除分支：将 dev 分支删除</li>
-</ul>
-<img src="figures\5.png" style="zoom:80%;" />
-
-<h4 id="合并冲突👏"><a href="#合并冲突👏" class="headerlink" title="合并冲突👏"></a>合并冲突👏</h4><blockquote>
-<p>合并并不仅仅是简单的文件添加、移除的操作，Git 也会合并修改。</p>
-</blockquote>
-<h5 id="简单的冲突"><a href="#简单的冲突" class="headerlink" title="简单的冲突"></a>简单的冲突</h5><blockquote>
-<p>简单的冲突是指， bugFix 基于 main 建立后，main 不会进行提交，而是只在 bugFix分支提交！</p>
-<p>然后 main 要 merge bugFix 时，Git 会自动帮你完成 merge</p>
-</blockquote>
-<h6 id="以内容添加为例"><a href="#以内容添加为例" class="headerlink" title="以内容添加为例"></a>以内容添加为例</h6><ul>
-<li>往 dev.txt 中覆盖写入 “main:develop file!”，并查看</li>
-</ul>
-<img src="figures\6.png" style="zoom:80%;" />
-
-<ul>
-<li><p>新建分支 bugFix，并在 dev.txt 中追加写入：”bugFix:fix some bugs!”</p>
-<p>add &amp; commit the changes</p>
-</li>
-</ul>
-<img src="F:\GithubRepository\git\figures\8.png" style="zoom:70%;" />
-
-<ul>
-<li>在 main 和 bugFix 中查看 dev.txt</li>
-</ul>
-<img src="F:\GithubRepository\git\figures\9.png" style="zoom:80%;" />
-
-<ul>
-<li><p>合并两个分支</p>
-<p>使用 git merge bugFix 后，会弹出一个 vim界面，在其中写入为何要 merge</p>
-</li>
-</ul>
-<img src="figures\10.png" style="zoom:80%;" />
-
-<img src="F:\GithubRepository\git\figures\vim1.png" style="zoom:80%;" />
-
-<img src="figures\11.png" style="zoom:80%;" />
-
-<p><del>内容删减和修改就不再展示了</del></p>
-<h5 id="复杂的冲突"><a href="#复杂的冲突" class="headerlink" title="复杂的冲突"></a>复杂的冲突</h5><blockquote>
-<p>如果 bugFix 基于 main 建立之后， bugFix 进行了一次 commit，main 也进行了一次 commit!</p>
-<p>这个时候如果 main 要 merge bugFix，Git 会向你报错：Automatic merge failed; fix conflicts and then commit the result. </p>
-<p>这代表 Git 无法像前面那样自动 merge bugFix，因为现在的 main 已经提交一（好多次）次了！</p>
-</blockquote>
-<ul>
-<li>在 bugFix 中修改 dev.txt，add &amp; commit</li>
-</ul>
-<img src="figures\16.png" style="zoom:80%;" />
-
-<ul>
-<li>回到 main 中，修改 dev.txt，add &amp; commit</li>
-</ul>
-<img src="figures\17.png" style="zoom:80%;" />
-
-<ul>
-<li><p>main 要 merge bugFix，出现报错！</p>
-<p>Git 无法自动合并，这时我们要手动修改代码！</p>
-<p>而且注意 branch 的状态：(main|MERGING) 这说明 main 正在（等待）合并（改错）！</p>
-</li>
-</ul>
-<img src="F:\GithubRepository\git\figures\18.png" style="zoom:80%;" />
-
-<ul>
-<li><p>打开dev.txt：vim dev.txt，查看内容如下：</p>
-<p>可以发现，Git 已经提示了冲突的位置！</p>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt;HEAD 与 “====” 之间的是 main 中的 changes</p>
-<p>“====” 与 &gt;&gt;&gt;&gt;&gt;&gt;bugFix 之间的是 bugFix 中的 changes</p>
-<p>我们可以依据实际的 API 改变情况进行修改！如下</p>
-</li>
-</ul>
-<img src="F:\GithubRepository\git\figures\vim2.png" style="zoom:80%;" />
-
-<img src="figures\19.png" style="zoom:80%;" />
-
-<ul>
-<li><p>之后，可以用 git add 要告诉 Git 文件冲突已经解决</p>
-<p>注意：branch 的状态由 (main|MERGING) 变为了 main，说明 merge 完成！</p>
-<p>查看 dev.txt 内容：已经变成了我修改（协商）后的内容</p>
-</li>
-</ul>
-<img src="figures\20.png" style="zoom:80%;" />
-
-<img src="figures\21.png" style="zoom:80%;" />
-
-<ul>
-<li>对于 bugFix 分支，这时可以删除了！</li>
-</ul>
-<img src="figures\22.png" style="zoom:80%;" />
-
-]]></content>
-      <categories>
-        <category>Git</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Transfer Learning</title>
     <url>/blog/2021/12/25/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/1.0%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<h1 id="迁移学习和微调（keras）"><a href="#迁移学习和微调（keras）" class="headerlink" title="迁移学习和微调（keras）"></a>迁移学习和微调（keras）</h1><span id="more"></span>
@@ -515,6 +358,165 @@
       </categories>
       <tags>
         <tag>YAML</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git usage</title>
+    <url>/blog/2021/12/27/git/</url>
+    <content><![CDATA[<h1 id="Git🎈"><a href="#Git🎈" class="headerlink" title="Git🎈"></a>Git🎈</h1><h2 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h2><span id="more"></span>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 建立repo</span></span><br><span class="line">git init  <span class="comment"># 初始化本地repo</span></span><br><span class="line">git <span class="built_in">clone</span> [url]  <span class="comment"># 克隆远程repo到本地</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 连接（移除）远程repo</span></span><br><span class="line">git remote add origin [url]  <span class="comment"># 连接</span></span><br><span class="line">git remote rm origin  <span class="comment"># 移除</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 改branch名</span></span><br><span class="line">git branch -M main</span><br><span class="line"></span><br><span class="line"><span class="comment"># add &amp; commit</span></span><br><span class="line">git add .  <span class="comment"># 提交所有改变到暂存区</span></span><br><span class="line">git add <span class="string">&quot;change 的文件名&quot;</span>  <span class="comment"># 提交单独的改变到暂存区</span></span><br><span class="line">git commit -m <span class="string">&quot;commit comment!&quot;</span>  <span class="comment"># 提交暂存区的内容到repo</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看所有文件或指定文件状态</span></span><br><span class="line"><span class="comment"># 查看所有文件</span></span><br><span class="line">git status</span><br><span class="line"><span class="comment"># 查看指定文件状态</span></span><br><span class="line">git status [filename]</span><br><span class="line"></span><br><span class="line"><span class="comment"># git push</span></span><br><span class="line">git push -u origin master  </span><br><span class="line"><span class="comment"># 将本地的master分支推送到origin主机的master分支。如果master不存在，则会被新建。</span></span><br><span class="line">git push -u origin dev</span><br><span class="line"><span class="comment"># 将本地的dev分支推送到origin主机的dev分支。如果dev不存在，则会被新建。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># git pull == git fetch &amp; merge</span></span><br><span class="line">git pull origin master <span class="comment"># 从远程获取最新版本并merge到本地</span></span><br><span class="line"><span class="comment"># 等于</span></span><br><span class="line">git fetch origin master  <span class="comment"># 从远程获取最新版本到本地，不会自动merge</span></span><br><span class="line">git merge origin/master</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">git fetch origin master:<span class="built_in">test</span>  <span class="comment"># 从远程获取最新的版本到本地的test分支上</span></span><br><span class="line">git diff <span class="built_in">test</span>  <span class="comment"># 之后再进行比较</span></span><br><span class="line">git merge <span class="built_in">test</span>  <span class="comment"># 合并</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="忽略某些文件"><a href="#忽略某些文件" class="headerlink" title="忽略某些文件"></a>忽略某些文件</h2><blockquote>
+<p>有时候不需要把某些文件纳入版本控制中</p>
+</blockquote>
+<p>在repo文件夹下建立 “.gitignore” 文件，此文件有如下规则：</p>
+<ol>
+<li><p>忽略文件中的空行、以井号（#）开始的行也会被忽略</p>
+</li>
+<li><p>可以使用 Linux 通配符。例如：星号（*）代表任意多个字符，问好（?）代表一个字符，方括号（[abc]）代表可选字符范围，大括号（{string1, string2,······}）代表可选的字符串</p>
+</li>
+<li><p>如果名称的最前面有一个感叹号（!），表示例外规则，将不被忽略。</p>
+</li>
+<li><p>如果名称的最前面是一个路径分隔符（/），表示要忽略的文件在此目录下，而子目录中的文件不</p>
+</li>
+<li><p>如果名称的最后面是一个路径分隔符（/），表示要忽略的是此目录下该名称的子目录，而非文件（默认文件或目录都忽略）。</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 为注释</span></span><br><span class="line">*.txt  <span class="comment"># 忽略所有.txt结尾的文件，这样的话上传就不会被选中!</span></span><br><span class="line">!lib.txt  <span class="comment"># 但lib.txt除外</span></span><br><span class="line">/temp  <span class="comment"># 仅忽略项目根目录下的TODO文件,不包括其它目录temp</span></span><br><span class="line"><span class="comment"># &quot;/&quot; 前面的被忽略，后面的保留</span></span><br><span class="line">build/  <span class="comment"># 忽略build/目录下的所有文件</span></span><br><span class="line">doc/*.txt  <span class="comment"># 会忽略doc/notes.txt但不包括doc /server/arch.txt</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="配置SSH公钥以及创建repo"><a href="#配置SSH公钥以及创建repo" class="headerlink" title="配置SSH公钥以及创建repo"></a>配置SSH公钥以及创建repo</h2><p><a href="https://blog.csdn.net/u013778905/article/details/83501204">look there!</a></p>
+<p>创建repo时，可选许可证：</p>
+<ol>
+<li>开源可以随意转载</li>
+<li>开源但不可商用</li>
+<li>等等</li>
+</ol>
+<h2 id="Git-分支"><a href="#Git-分支" class="headerlink" title="Git 分支"></a>Git 分支</h2><h3 id="常用分支命令"><a href="#常用分支命令" class="headerlink" title="常用分支命令"></a>常用分支命令</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 列出所有本地分支</span></span><br><span class="line">git branch</span><br><span class="line"></span><br><span class="line"><span class="comment"># 列出所有远程分支</span></span><br><span class="line">git branch -r</span><br><span class="line"></span><br><span class="line"><span class="comment"># 新建一个分支，但依然停留在当前分支</span></span><br><span class="line">git branch [branch name]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 新建一个分支，并切换到该分支</span></span><br><span class="line">git checkout -b [branch]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 合并分支到当前分支</span></span><br><span class="line">git merge [branch]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除分支</span></span><br><span class="line">git branch -d [branch name]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除远程分支</span></span><br><span class="line">git push origin --delete [branch name]</span><br><span class="line">git branch -dr [remote/branch]</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>如果同一个文件在合并时都被修改了，则会引起冲突。解决办法是修改冲突文件后重新提交，选择保留它的代码还是你的代码！</p>
+<p>简言之，如果冲突了就需要协商</p>
+</blockquote>
+<h3 id="Git-分支管理💥"><a href="#Git-分支管理💥" class="headerlink" title="Git 分支管理💥"></a>Git 分支管理💥</h3><h4 id="文件添加、移除的操作"><a href="#文件添加、移除的操作" class="headerlink" title="文件添加、移除的操作"></a>文件添加、移除的操作</h4><ul>
+<li>当前文件夹下：git.md、本地分支：main，远程分支：origin/main</li>
+</ul>
+<img src="git\1.png" style="zoom:80%;" />
+
+<ul>
+<li><p>新建分支：dev，添加文件 dev.txt，并将其 add &amp; commit</p>
+<p>在 dev 分支下，有文件：dev.txt &amp; figures &amp; git.md</p>
+<p>但是在 main 分支下，看不到 dev.txt</p>
+</li>
+</ul>
+<img src="git\2.png" style="zoom:80%;" />
+
+<img src="git\3.png" alt="image-20211227125139440" style="zoom:80%;" />
+
+<ul>
+<li><p>合并分支：将 main 和 dev 合并！<code>git merge [branch name]</code></p>
+<p>在 main 分支中，可以看到 dev.txt</p>
+</li>
+</ul>
+<img src="git\4.png" style="zoom:80%;" />
+
+<ul>
+<li>删除分支：将 dev 分支删除</li>
+</ul>
+<img src="git\5.png" style="zoom:80%;" />
+
+<h4 id="合并冲突👏"><a href="#合并冲突👏" class="headerlink" title="合并冲突👏"></a>合并冲突👏</h4><blockquote>
+<p>合并并不仅仅是简单的文件添加、移除的操作，Git 也会合并修改。</p>
+</blockquote>
+<h5 id="简单的冲突"><a href="#简单的冲突" class="headerlink" title="简单的冲突"></a>简单的冲突</h5><blockquote>
+<p>简单的冲突是指， bugFix 基于 main 建立后，main 不会进行提交，而是只在 bugFix分支提交！</p>
+<p>然后 main 要 merge bugFix 时，Git 会自动帮你完成 merge</p>
+</blockquote>
+<h6 id="以内容添加为例"><a href="#以内容添加为例" class="headerlink" title="以内容添加为例"></a>以内容添加为例</h6><ul>
+<li>往 dev.txt 中覆盖写入 “main:develop file!”，并查看</li>
+</ul>
+<img src="git\6.png" style="zoom:80%;" />
+
+<ul>
+<li><p>新建分支 bugFix，并在 dev.txt 中追加写入：”bugFix:fix some bugs!”</p>
+<p>add &amp; commit the changes</p>
+</li>
+</ul>
+<img src="git\8.png" style="zoom:70%;" />
+
+<ul>
+<li>在 main 和 bugFix 中查看 dev.txt</li>
+</ul>
+<img src="git\9.png" style="zoom:80%;" />
+
+<ul>
+<li><p>合并两个分支</p>
+<p>使用 git merge bugFix 后，会弹出一个 vim界面，在其中写入为何要 merge</p>
+</li>
+</ul>
+<img src="git\10.png" style="zoom:80%;" />
+
+<img src="git\vim1.png" style="zoom:80%;" />
+
+<img src="git\11.png" style="zoom:80%;" />
+
+<p><del>内容删减和修改就不再展示了</del></p>
+<h5 id="复杂的冲突"><a href="#复杂的冲突" class="headerlink" title="复杂的冲突"></a>复杂的冲突</h5><blockquote>
+<p>如果 bugFix 基于 main 建立之后， bugFix 进行了一次 commit，main 也进行了一次 commit!</p>
+<p>这个时候如果 main 要 merge bugFix，Git 会向你报错：Automatic merge failed; fix conflicts and then commit the result. </p>
+<p>这代表 Git 无法像前面那样自动 merge bugFix，因为现在的 main 已经提交一（好多次）次了！</p>
+</blockquote>
+<ul>
+<li>在 bugFix 中修改 dev.txt，add &amp; commit</li>
+</ul>
+<img src="git\16.png" style="zoom:80%;" />
+
+<ul>
+<li>回到 main 中，修改 dev.txt，add &amp; commit</li>
+</ul>
+<img src="git\17.png" style="zoom:80%;" />
+
+<ul>
+<li><p>main 要 merge bugFix，出现报错！</p>
+<p>Git 无法自动合并，这时我们要手动修改代码！</p>
+<p>而且注意 branch 的状态：(main|MERGING) 这说明 main 正在（等待）合并（改错）！</p>
+</li>
+</ul>
+<img src="git\18.png" style="zoom:80%;" />
+
+<ul>
+<li><p>打开dev.txt：vim dev.txt，查看内容如下：</p>
+<p>可以发现，Git 已经提示了冲突的位置！</p>
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt;HEAD 与 “====” 之间的是 main 中的 changes</p>
+<p>“====” 与 &gt;&gt;&gt;&gt;&gt;&gt;bugFix 之间的是 bugFix 中的 changes</p>
+<p>我们可以依据实际的 API 改变情况进行修改！如下</p>
+</li>
+</ul>
+<img src="git\vim2.png" style="zoom:80%;" />
+
+<img src="git\19.png" style="zoom:80%;" />
+
+<ul>
+<li><p>之后，可以用 git add 要告诉 Git 文件冲突已经解决</p>
+<p>注意：branch 的状态由 (main|MERGING) 变为了 main，说明 merge 完成！</p>
+<p>查看 dev.txt 内容：已经变成了我修改（协商）后的内容</p>
+</li>
+</ul>
+<img src="git\20.png" style="zoom:80%;" />
+
+<img src="git\21.png" style="zoom:80%;" />
+
+<ul>
+<li>对于 bugFix 分支，这时可以删除了！</li>
+</ul>
+<img src="git\22.png" style="zoom:80%;" />
+
+]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
       </tags>
   </entry>
 </search>
