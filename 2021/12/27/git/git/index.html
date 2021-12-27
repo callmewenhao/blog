@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/blog/lib/pace/pace-theme-center-radar.min.css">
+  <script src="/blog/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"callmewenhao.github.io","root":"/blog/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Git🎈基本命令12345678910111213141516171819202122232425262728293031323334353637# 建立repogit init  # 初始化本地repogit clone [url]  # 克隆远程repo到本地# 连接（移除）远程repogit remote add origin [url]  # 连接git remote rm origin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git usage">
+<meta property="og:url" content="https://callmewenhao.github.io/blog/2021/12/27/git/git/index.html">
+<meta property="og:site_name" content="the blog of wenhao!">
+<meta property="og:description" content="Git🎈基本命令12345678910111213141516171819202122232425262728293031323334353637# 建立repogit init  # 初始化本地repogit clone [url]  # 克隆远程repo到本地# 连接（移除）远程repogit remote add origin [url]  # 连接git remote rm origin">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://callmewenhao.github.io/blog/2021/12/27/git/git/figures/1.png">
+<meta property="og:image" content="https://callmewenhao.github.io/blog/2021/12/27/git/git/figures/2.png">
+<meta property="og:image" content="https://callmewenhao.github.io/blog/2021/12/27/git/git/figures/3.png">
+<meta property="og:image" content="https://callmewenhao.github.io/blog/2021/12/27/git/git/figures/4.png">
+<meta property="og:image" content="https://callmewenhao.github.io/blog/2021/12/27/git/git/figures/5.png">
+<meta property="og:image" content="https://callmewenhao.github.io/blog/2021/12/27/git/git/figures/6.png">
+<meta property="og:image" content="f:/GithubRepository/git/figures/8.png">
+<meta property="og:image" content="f:/GithubRepository/git/figures/9.png">
+<meta property="og:image" content="https://callmewenhao.github.io/blog/2021/12/27/git/git/figures/10.png">
+<meta property="og:image" content="f:/GithubRepository/git/figures/vim1.png">
+<meta property="og:image" content="https://callmewenhao.github.io/blog/2021/12/27/git/git/figures/11.png">
+<meta property="og:image" content="https://callmewenhao.github.io/blog/2021/12/27/git/git/figures/16.png">
+<meta property="og:image" content="https://callmewenhao.github.io/blog/2021/12/27/git/git/figures/17.png">
+<meta property="og:image" content="f:/GithubRepository/git/figures/18.png">
+<meta property="og:image" content="f:/GithubRepository/git/figures/vim2.png">
+<meta property="og:image" content="https://callmewenhao.github.io/blog/2021/12/27/git/git/figures/19.png">
+<meta property="og:image" content="https://callmewenhao.github.io/blog/2021/12/27/git/git/figures/20.png">
+<meta property="og:image" content="https://callmewenhao.github.io/blog/2021/12/27/git/git/figures/21.png">
+<meta property="og:image" content="https://callmewenhao.github.io/blog/2021/12/27/git/git/figures/22.png">
+<meta property="article:published_time" content="2021-12-26T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-12-27T07:14:08.494Z">
+<meta property="article:author" content="callmewenhao">
+<meta property="article:tag" content="Git">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://callmewenhao.github.io/blog/2021/12/27/git/git/figures/1.png">
+
+<link rel="canonical" href="https://callmewenhao.github.io/blog/2021/12/27/git/git/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Git usage | the blog of wenhao!</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/blog/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">the blog of wenhao!</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/blog/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/blog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+      <a target="_blank" rel="noopener" href="https://github.com/callmewenhao" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://callmewenhao.github.io/blog/2021/12/27/git/git/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/%E7%8E%AF%E5%A4%AA%E5%B9%B3%E6%B4%8B1.jpg">
+      <meta itemprop="name" content="callmewenhao">
+      <meta itemprop="description" content="莫语常言道知足，万事至终总是空。理想现实一线隔，心无旁骛脚踏实。谁无暴风劲雨时，守得云开见月明。花开复见却飘零，残憾莫使今生留。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="the blog of wenhao!">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Git usage
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-12-27 00:00:00 / 修改时间：15:14:08" itemprop="dateCreated datePublished" datetime="2021-12-27T00:00:00+08:00">2021-12-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Git🎈"><a href="#Git🎈" class="headerlink" title="Git🎈"></a>Git🎈</h1><h2 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 建立repo</span></span><br><span class="line">git init  <span class="comment"># 初始化本地repo</span></span><br><span class="line">git <span class="built_in">clone</span> [url]  <span class="comment"># 克隆远程repo到本地</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 连接（移除）远程repo</span></span><br><span class="line">git remote add origin [url]  <span class="comment"># 连接</span></span><br><span class="line">git remote rm origin  <span class="comment"># 移除</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 改branch名</span></span><br><span class="line">git branch -M main</span><br><span class="line"></span><br><span class="line"><span class="comment"># add &amp; commit</span></span><br><span class="line">git add .  <span class="comment"># 提交所有改变到暂存区</span></span><br><span class="line">git add <span class="string">&quot;change 的文件名&quot;</span>  <span class="comment"># 提交单独的改变到暂存区</span></span><br><span class="line">git commit -m <span class="string">&quot;commit comment!&quot;</span>  <span class="comment"># 提交暂存区的内容到repo</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看所有文件或指定文件状态</span></span><br><span class="line"><span class="comment"># 查看所有文件</span></span><br><span class="line">git status</span><br><span class="line"><span class="comment"># 查看指定文件状态</span></span><br><span class="line">git status [filename]</span><br><span class="line"></span><br><span class="line"><span class="comment"># git push</span></span><br><span class="line">git push -u origin master  </span><br><span class="line"><span class="comment"># 将本地的master分支推送到origin主机的master分支。如果master不存在，则会被新建。</span></span><br><span class="line">git push -u origin dev</span><br><span class="line"><span class="comment"># 将本地的dev分支推送到origin主机的dev分支。如果dev不存在，则会被新建。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># git pull == git fetch &amp; merge</span></span><br><span class="line">git pull origin master <span class="comment"># 从远程获取最新版本并merge到本地</span></span><br><span class="line"><span class="comment"># 等于</span></span><br><span class="line">git fetch origin master  <span class="comment"># 从远程获取最新版本到本地，不会自动merge</span></span><br><span class="line">git merge origin/master</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">git fetch origin master:<span class="built_in">test</span>  <span class="comment"># 从远程获取最新的版本到本地的test分支上</span></span><br><span class="line">git diff <span class="built_in">test</span>  <span class="comment"># 之后再进行比较</span></span><br><span class="line">git merge <span class="built_in">test</span>  <span class="comment"># 合并</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="忽略某些文件"><a href="#忽略某些文件" class="headerlink" title="忽略某些文件"></a>忽略某些文件</h2><blockquote>
+<p>有时候不需要把某些文件纳入版本控制中</p>
+</blockquote>
+<p>在repo文件夹下建立 “.gitignore” 文件，此文件有如下规则：</p>
+<ol>
+<li><p>忽略文件中的空行、以井号（#）开始的行也会被忽略</p>
+</li>
+<li><p>可以使用 Linux 通配符。例如：星号（*）代表任意多个字符，问好（?）代表一个字符，方括号（[abc]）代表可选字符范围，大括号（{string1, string2,······}）代表可选的字符串</p>
+</li>
+<li><p>如果名称的最前面有一个感叹号（!），表示例外规则，将不被忽略。</p>
+</li>
+<li><p>如果名称的最前面是一个路径分隔符（/），表示要忽略的文件在此目录下，而子目录中的文件不</p>
+</li>
+<li><p>如果名称的最后面是一个路径分隔符（/），表示要忽略的是此目录下该名称的子目录，而非文件（默认文件或目录都忽略）。</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 为注释</span></span><br><span class="line">*.txt  <span class="comment"># 忽略所有.txt结尾的文件，这样的话上传就不会被选中!</span></span><br><span class="line">!lib.txt  <span class="comment"># 但lib.txt除外</span></span><br><span class="line">/temp  <span class="comment"># 仅忽略项目根目录下的TODO文件,不包括其它目录temp</span></span><br><span class="line"><span class="comment"># &quot;/&quot; 前面的被忽略，后面的保留</span></span><br><span class="line">build/  <span class="comment"># 忽略build/目录下的所有文件</span></span><br><span class="line">doc/*.txt  <span class="comment"># 会忽略doc/notes.txt但不包括doc /server/arch.txt</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="配置SSH公钥以及创建repo"><a href="#配置SSH公钥以及创建repo" class="headerlink" title="配置SSH公钥以及创建repo"></a>配置SSH公钥以及创建repo</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u013778905/article/details/83501204">look there!</a></p>
+<p>创建repo时，可选许可证：</p>
+<ol>
+<li>开源可以随意转载</li>
+<li>开源但不可商用</li>
+<li>等等</li>
+</ol>
+<h2 id="Git-分支"><a href="#Git-分支" class="headerlink" title="Git 分支"></a>Git 分支</h2><h3 id="常用分支命令"><a href="#常用分支命令" class="headerlink" title="常用分支命令"></a>常用分支命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 列出所有本地分支</span></span><br><span class="line">git branch</span><br><span class="line"></span><br><span class="line"><span class="comment"># 列出所有远程分支</span></span><br><span class="line">git branch -r</span><br><span class="line"></span><br><span class="line"><span class="comment"># 新建一个分支，但依然停留在当前分支</span></span><br><span class="line">git branch [branch name]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 新建一个分支，并切换到该分支</span></span><br><span class="line">git checkout -b [branch]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 合并分支到当前分支</span></span><br><span class="line">git merge [branch]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除分支</span></span><br><span class="line">git branch -d [branch name]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除远程分支</span></span><br><span class="line">git push origin --delete [branch name]</span><br><span class="line">git branch -dr [remote/branch]</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>如果同一个文件在合并时都被修改了，则会引起冲突。解决办法是修改冲突文件后重新提交，选择保留它的代码还是你的代码！</p>
+<p>简言之，如果冲突了就需要协商</p>
+</blockquote>
+<h3 id="Git-分支管理💥"><a href="#Git-分支管理💥" class="headerlink" title="Git 分支管理💥"></a>Git 分支管理💥</h3><h4 id="文件添加、移除的操作"><a href="#文件添加、移除的操作" class="headerlink" title="文件添加、移除的操作"></a>文件添加、移除的操作</h4><ul>
+<li>当前文件夹下：git.md、本地分支：main，远程分支：origin/main</li>
+</ul>
+<img src="figures\1.png" style="zoom:80%;" />
+
+<ul>
+<li><p>新建分支：dev，添加文件 dev.txt，并将其 add &amp; commit</p>
+<p>在 dev 分支下，有文件：dev.txt &amp; figures &amp; git.md</p>
+<p>但是在 main 分支下，看不到 dev.txt</p>
+</li>
+</ul>
+<img src="figures\2.png" style="zoom:80%;" />
+
+<img src="figures\3.png" alt="image-20211227125139440" style="zoom:80%;" />
+
+<ul>
+<li><p>合并分支：将 main 和 dev 合并！<code>git merge [branch name]</code></p>
+<p>在 main 分支中，可以看到 dev.txt</p>
+</li>
+</ul>
+<img src="figures\4.png" style="zoom:80%;" />
+
+<ul>
+<li>删除分支：将 dev 分支删除</li>
+</ul>
+<img src="figures\5.png" style="zoom:80%;" />
+
+<h4 id="合并冲突👏"><a href="#合并冲突👏" class="headerlink" title="合并冲突👏"></a>合并冲突👏</h4><blockquote>
+<p>合并并不仅仅是简单的文件添加、移除的操作，Git 也会合并修改。</p>
+</blockquote>
+<h5 id="简单的冲突"><a href="#简单的冲突" class="headerlink" title="简单的冲突"></a>简单的冲突</h5><blockquote>
+<p>简单的冲突是指， bugFix 基于 main 建立后，main 不会进行提交，而是只在 bugFix分支提交！</p>
+<p>然后 main 要 merge bugFix 时，Git 会自动帮你完成 merge</p>
+</blockquote>
+<h6 id="以内容添加为例"><a href="#以内容添加为例" class="headerlink" title="以内容添加为例"></a>以内容添加为例</h6><ul>
+<li>往 dev.txt 中覆盖写入 “main:develop file!”，并查看</li>
+</ul>
+<img src="figures\6.png" style="zoom:80%;" />
+
+<ul>
+<li><p>新建分支 bugFix，并在 dev.txt 中追加写入：”bugFix:fix some bugs!”</p>
+<p>add &amp; commit the changes</p>
+</li>
+</ul>
+<img src="F:\GithubRepository\git\figures\8.png" style="zoom:70%;" />
+
+<ul>
+<li>在 main 和 bugFix 中查看 dev.txt</li>
+</ul>
+<img src="F:\GithubRepository\git\figures\9.png" style="zoom:80%;" />
+
+<ul>
+<li><p>合并两个分支</p>
+<p>使用 git merge bugFix 后，会弹出一个 vim界面，在其中写入为何要 merge</p>
+</li>
+</ul>
+<img src="figures\10.png" style="zoom:80%;" />
+
+<img src="F:\GithubRepository\git\figures\vim1.png" style="zoom:80%;" />
+
+<img src="figures\11.png" style="zoom:80%;" />
+
+<p><del>内容删减和修改就不再展示了</del></p>
+<h5 id="复杂的冲突"><a href="#复杂的冲突" class="headerlink" title="复杂的冲突"></a>复杂的冲突</h5><blockquote>
+<p>如果 bugFix 基于 main 建立之后， bugFix 进行了一次 commit，main 也进行了一次 commit!</p>
+<p>这个时候如果 main 要 merge bugFix，Git 会向你报错：Automatic merge failed; fix conflicts and then commit the result. </p>
+<p>这代表 Git 无法像前面那样自动 merge bugFix，因为现在的 main 已经提交一（好多次）次了！</p>
+</blockquote>
+<ul>
+<li>在 bugFix 中修改 dev.txt，add &amp; commit</li>
+</ul>
+<img src="figures\16.png" style="zoom:80%;" />
+
+<ul>
+<li>回到 main 中，修改 dev.txt，add &amp; commit</li>
+</ul>
+<img src="figures\17.png" style="zoom:80%;" />
+
+<ul>
+<li><p>main 要 merge bugFix，出现报错！</p>
+<p>Git 无法自动合并，这时我们要手动修改代码！</p>
+<p>而且注意 branch 的状态：(main|MERGING) 这说明 main 正在（等待）合并（改错）！</p>
+</li>
+</ul>
+<img src="F:\GithubRepository\git\figures\18.png" style="zoom:80%;" />
+
+<ul>
+<li><p>打开dev.txt：vim dev.txt，查看内容如下：</p>
+<p>可以发现，Git 已经提示了冲突的位置！</p>
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt;HEAD 与 “====” 之间的是 main 中的 changes</p>
+<p>“====” 与 &gt;&gt;&gt;&gt;&gt;&gt;bugFix 之间的是 bugFix 中的 changes</p>
+<p>我们可以依据实际的 API 改变情况进行修改！如下</p>
+</li>
+</ul>
+<img src="F:\GithubRepository\git\figures\vim2.png" style="zoom:80%;" />
+
+<img src="figures\19.png" style="zoom:80%;" />
+
+<ul>
+<li><p>之后，可以用 git add 要告诉 Git 文件冲突已经解决</p>
+<p>注意：branch 的状态由 (main|MERGING) 变为了 main，说明 merge 完成！</p>
+<p>查看 dev.txt 内容：已经变成了我修改（协商）后的内容</p>
+</li>
+</ul>
+<img src="figures\20.png" style="zoom:80%;" />
+
+<img src="figures\21.png" style="zoom:80%;" />
+
+<ul>
+<li>对于 bugFix 分支，这时可以删除了！</li>
+</ul>
+<img src="figures\22.png" style="zoom:80%;" />
+
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>Donate comment here.</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/blog/images/wechatpay.jpg" alt="callmewenhao 微信支付">
+        <p>微信支付</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/blog/tags/Git/" rel="tag"># Git</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/2021/12/25/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/1.0%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/" rel="prev" title="Transfer Learning">
+      <i class="fa fa-chevron-left"></i> Transfer Learning
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Git%F0%9F%8E%88"><span class="nav-number">1.</span> <span class="nav-text">Git🎈</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4"><span class="nav-number">1.1.</span> <span class="nav-text">基本命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%BD%E7%95%A5%E6%9F%90%E4%BA%9B%E6%96%87%E4%BB%B6"><span class="nav-number">1.2.</span> <span class="nav-text">忽略某些文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AESSH%E5%85%AC%E9%92%A5%E4%BB%A5%E5%8F%8A%E5%88%9B%E5%BB%BArepo"><span class="nav-number">1.3.</span> <span class="nav-text">配置SSH公钥以及创建repo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-%E5%88%86%E6%94%AF"><span class="nav-number">1.4.</span> <span class="nav-text">Git 分支</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%88%86%E6%94%AF%E5%91%BD%E4%BB%A4"><span class="nav-number">1.4.1.</span> <span class="nav-text">常用分支命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git-%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86%F0%9F%92%A5"><span class="nav-number">1.4.2.</span> <span class="nav-text">Git 分支管理💥</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E6%B7%BB%E5%8A%A0%E3%80%81%E7%A7%BB%E9%99%A4%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">文件添加、移除的操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%88%E5%B9%B6%E5%86%B2%E7%AA%81%F0%9F%91%8F"><span class="nav-number">1.4.2.2.</span> <span class="nav-text">合并冲突👏</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E7%9A%84%E5%86%B2%E7%AA%81"><span class="nav-number">1.4.2.2.1.</span> <span class="nav-text">简单的冲突</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BB%A5%E5%86%85%E5%AE%B9%E6%B7%BB%E5%8A%A0%E4%B8%BA%E4%BE%8B"><span class="nav-number">1.4.2.2.1.1.</span> <span class="nav-text">以内容添加为例</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A4%8D%E6%9D%82%E7%9A%84%E5%86%B2%E7%AA%81"><span class="nav-number">1.4.2.2.2.</span> <span class="nav-text">复杂的冲突</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="callmewenhao"
+      src="/blog/images/%E7%8E%AF%E5%A4%AA%E5%B9%B3%E6%B4%8B1.jpg">
+  <p class="site-author-name" itemprop="name">callmewenhao</p>
+  <div class="site-description" itemprop="description">莫语常言道知足，万事至终总是空。理想现实一线隔，心无旁骛脚踏实。谁无暴风劲雨时，守得云开见月明。花开复见却飘零，残憾莫使今生留。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/blog/archives">
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/blog/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/blog/tags/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/callmewenhao" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;callmewenhao" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://callmewenhao.github.io/" title="http:&#x2F;&#x2F;callmewenhao.github.io">zhaowenhao</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">callmewenhao</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/blog/lib/anime.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/blog/js/utils.js"></script>
+
+<script src="/blog/js/motion.js"></script>
+
+
+<script src="/blog/js/schemes/pisces.js"></script>
+
+
+<script src="/blog/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
