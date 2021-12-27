@@ -49,6 +49,41 @@
       </tags>
   </entry>
   <entry>
+    <title>pip usage</title>
+    <url>/blog/2021/12/11/pip-usage/</url>
+    <content><![CDATA[<h1 id="Pip-Usage"><a href="#Pip-Usage" class="headerlink" title="Pip Usage"></a>Pip Usage</h1><h2 id="pip-基本语法😉"><a href="#pip-基本语法😉" class="headerlink" title="pip 基本语法😉"></a>pip 基本语法😉</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install SomePackage            # latest version</span><br><span class="line">pip install SomePackage==1.0.4     # specific version</span><br><span class="line">pip install &#x27;SomePackage&gt;=1.0.4&#x27;   # minimum version</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<h2 id="pip-高级用法👍"><a href="#pip-高级用法👍" class="headerlink" title="pip 高级用法👍"></a>pip 高级用法👍</h2><p>编写 package 版本文件 <code>requirements.txt</code> (●’◡’●)</p>
+<h3 id="当前已装库-list"><a href="#当前已装库-list" class="headerlink" title="当前已装库 list"></a>当前已装库 list</h3><p><code>pip freeze</code> 可以实现：获得项目运行时，所需安装库的固定版本</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip freeze &gt; requirements.txt</span><br></pre></td></tr></table></figure>
+
+<p>运行该语句后，在项目目录会出现 <code>requirements.txt</code> 其中包含环境中的各种 <code>package</code></p>
+<h3 id="安装语法🎶"><a href="#安装语法🎶" class="headerlink" title="安装语法🎶"></a>安装语法🎶</h3><p><code>pip install -r</code> 将会自动安装 <code>requirements.txt</code> 中的所有 <code>package</code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure>
+
+<h3 id="requirements-txt-结构"><a href="#requirements-txt-结构" class="headerlink" title="requirements.txt 结构"></a>requirements.txt 结构</h3><ul>
+<li><p>Comments：A line that begins with <code>#</code> is treated as a comment and ignored.</p>
+</li>
+<li><p>Encoding：Requirements files are <code>utf-8</code> encoding by default</p>
+</li>
+<li><p>Line continuations（续行）：A line ending in an unescaped <code>\</code> is treated as a line continuation</p>
+</li>
+</ul>
+<h3 id="requirements-txt-例"><a href="#requirements-txt-例" class="headerlink" title="requirements.txt 例"></a>requirements.txt 例</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">###### Requirements with Version Specifiers ######</span></span><br><span class="line"><span class="comment">#   See https://www.python.org/dev/peps/pep-0440/#version-specifiers</span></span><br><span class="line">docopt == <span class="number">0.6</span><span class="number">.1</span>             <span class="comment"># Version Matching. Must be version 0.6.1</span></span><br><span class="line">keyring &gt;= <span class="number">4.1</span><span class="number">.1</span>            <span class="comment"># Minimum version 4.1.1</span></span><br><span class="line">coverage != <span class="number">3.5</span>             <span class="comment"># Version Exclusion. Anything except version 3.5</span></span><br><span class="line">Mopidy-Dirble ~= <span class="number">1.1</span>        <span class="comment"># Compatible release. Same as &gt;= 1.1, == 1.*</span></span><br></pre></td></tr></table></figure>
+
+<p><a href="https://github.com/ultralytics/yolov5/blob/master/requirements.txt">一个例子</a></p>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>pip</tag>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Git usage</title>
     <url>/blog/2021/12/27/git/</url>
     <content><![CDATA[<h1 id="Git🎈"><a href="#Git🎈" class="headerlink" title="Git🎈"></a>Git🎈</h1><h2 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h2><span id="more"></span>
@@ -251,43 +286,8 @@
       </tags>
   </entry>
   <entry>
-    <title>pip usage</title>
-    <url>/blog/2021/12/11/pip-usage/pip-usage/</url>
-    <content><![CDATA[<h1 id="Pip-Usage"><a href="#Pip-Usage" class="headerlink" title="Pip Usage"></a>Pip Usage</h1><h2 id="pip-基本语法😉"><a href="#pip-基本语法😉" class="headerlink" title="pip 基本语法😉"></a>pip 基本语法😉</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install SomePackage            # latest version</span><br><span class="line">pip install SomePackage==1.0.4     # specific version</span><br><span class="line">pip install &#x27;SomePackage&gt;=1.0.4&#x27;   # minimum version</span><br></pre></td></tr></table></figure>
-
-<span id="more"></span>
-
-<h2 id="pip-高级用法👍"><a href="#pip-高级用法👍" class="headerlink" title="pip 高级用法👍"></a>pip 高级用法👍</h2><p>编写 package 版本文件 <code>requirements.txt</code> (●’◡’●)</p>
-<h3 id="当前已装库-list"><a href="#当前已装库-list" class="headerlink" title="当前已装库 list"></a>当前已装库 list</h3><p><code>pip freeze</code> 可以实现：获得项目运行时，所需安装库的固定版本</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip freeze &gt; requirements.txt</span><br></pre></td></tr></table></figure>
-
-<p>运行该语句后，在项目目录会出现 <code>requirements.txt</code> 其中包含环境中的各种 <code>package</code></p>
-<h3 id="安装语法🎶"><a href="#安装语法🎶" class="headerlink" title="安装语法🎶"></a>安装语法🎶</h3><p><code>pip install -r</code> 将会自动安装 <code>requirements.txt</code> 中的所有 <code>package</code></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure>
-
-<h3 id="requirements-txt-结构"><a href="#requirements-txt-结构" class="headerlink" title="requirements.txt 结构"></a>requirements.txt 结构</h3><ul>
-<li><p>Comments：A line that begins with <code>#</code> is treated as a comment and ignored.</p>
-</li>
-<li><p>Encoding：Requirements files are <code>utf-8</code> encoding by default</p>
-</li>
-<li><p>Line continuations（续行）：A line ending in an unescaped <code>\</code> is treated as a line continuation</p>
-</li>
-</ul>
-<h3 id="requirements-txt-例"><a href="#requirements-txt-例" class="headerlink" title="requirements.txt 例"></a>requirements.txt 例</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">###### Requirements with Version Specifiers ######</span></span><br><span class="line"><span class="comment">#   See https://www.python.org/dev/peps/pep-0440/#version-specifiers</span></span><br><span class="line">docopt == <span class="number">0.6</span><span class="number">.1</span>             <span class="comment"># Version Matching. Must be version 0.6.1</span></span><br><span class="line">keyring &gt;= <span class="number">4.1</span><span class="number">.1</span>            <span class="comment"># Minimum version 4.1.1</span></span><br><span class="line">coverage != <span class="number">3.5</span>             <span class="comment"># Version Exclusion. Anything except version 3.5</span></span><br><span class="line">Mopidy-Dirble ~= <span class="number">1.1</span>        <span class="comment"># Compatible release. Same as &gt;= 1.1, == 1.*</span></span><br></pre></td></tr></table></figure>
-
-<p><a href="https://github.com/ultralytics/yolov5/blob/master/requirements.txt">一个例子</a></p>
-]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>pip</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>pyYAML Usage</title>
-    <url>/blog/2021/12/11/pyYAML/pyYAML/</url>
+    <url>/blog/2021/12/11/pyYAML/</url>
     <content><![CDATA[<h1 id="pyYAML-Usage"><a href="#pyYAML-Usage" class="headerlink" title="pyYAML Usage"></a>pyYAML Usage</h1><p>使用 yaml 文件配置模型以及训练参数，方便调参数！😉</p>
 <p>借鉴文章：<a href="https://zhuanlan.zhihu.com/p/42678768">https://zhuanlan.zhihu.com/p/42678768</a></p>
 <span id="more"></span>
@@ -352,7 +352,7 @@
   </entry>
   <entry>
     <title>Transfer Learning</title>
-    <url>/blog/2021/12/25/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/1.0%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/</url>
+    <url>/blog/2021/12/25/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<h1 id="迁移学习和微调（keras）"><a href="#迁移学习和微调（keras）" class="headerlink" title="迁移学习和微调（keras）"></a>迁移学习和微调（keras）</h1><span id="more"></span>
 
 <h2 id="import-setting"><a href="#import-setting" class="headerlink" title="import setting!"></a><strong>import setting!</strong></h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">from</span> tensorflow <span class="keyword">import</span> keras</span><br></pre></td></tr></table></figure>
@@ -516,6 +516,7 @@
       <tags>
         <tag>TransferLearning</tag>
         <tag>DeepLearning</tag>
+        <tag>Python</tag>
         <tag>keras</tag>
       </tags>
   </entry>
