@@ -224,7 +224,7 @@
 <h4 id="Image-super-resolution"><a href="#Image-super-resolution" class="headerlink" title="Image super-resolution"></a>Image super-resolution</h4><p>略</p>
 <h3 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h3><p>整个系统由两个部分组成：image transformation network &amp;  a loss network</p>
 <p>转换网络是一个深层残差卷积神经网络，他将输入图片转换成输出图片，它使用 <strong>stochastic gradient descent（SGD）</strong> 最小化联合 loss function 进行训练。🎈</p>
-<img src="figures\net.png" style="zoom:60%;" />
+<img src="net.png" style="zoom:60%;" />
 
 <h4 id="Image-Transformation-Networks"><a href="#Image-Transformation-Networks" class="headerlink" title="Image Transformation Networks"></a>Image Transformation Networks</h4><p>没有使用任何 pooling 层，使用小 stride 卷积实现 downsampling &amp; upsampling（?）</p>
 <p>网络主体由 5 个残差 block 组成，其结构如下： <a href="http://torch.ch/blog/2016/02/04/resnets.html%EF%BC%8C%E6%89%80%E6%9C%89%E7%9A%84%E9%9D%9E%E6%AE%8B%E5%B7%AE%E5%8D%B7%E7%A7%AF%E5%B1%82%E5%90%8E%E8%B7%9F%E4%B8%80%E4%B8%AA">http://torch.ch/blog/2016/02/04/resnets.html，所有的非残差卷积层后跟一个</a> batch Norm 和一个 RELU，除了输出层使用 tanh ensure that the output image has pixels in the range [0, 255]. Other than the first and last layers which use 9 × 9 kernels, all convolutional layers use 3 × 3 kernels. The exact architectures of all our networks can be found in the supplementary material.</p>
