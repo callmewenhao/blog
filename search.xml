@@ -1,6 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title></title>
+    <url>/blog/2022/01/19/2%E6%84%9F%E7%9F%A5%E6%9C%BA/</url>
+    <content><![CDATA[<h2 id="感知机"><a href="#感知机" class="headerlink" title="感知机"></a>感知机</h2><blockquote>
+<p>统计学习方法（李航）</p>
+<p>感知机是<strong>二分类</strong>的线性分类模型，输入为实例的特征向量，输出为实例的类别：取 +1 &amp; -1 两个值。</p>
+</blockquote>
+<h3 id="感知机模型s"><a href="#感知机模型s" class="headerlink" title="感知机模型s"></a>感知机模型s</h3><p><strong>定义：</strong></p>
+<blockquote>
+<p>输入空间（特征空间）是 $n$ 维实数集的子集： $X \subseteq R^{n}$，输出空间是 $Y={-1, +1}$</p>
+<p>输入 $x\in X$ 表示特征向量，对应于输入空间（特征空间）内的点，输出 $y\in Y$ 表示实例的类别。</p>
+<p>由输入空间到输出空间的映射函数，称为感知机（perceptron）。<br>$$<br>f(x)=sign(w\cdot x+b)<br>$$<br>其中：$w,\ b$ 为感知机参数，$w\in R^{n}$ 叫作权值（weight）或权值向量，$b\in R$ 叫作偏置（bias），$w*x$ 表示w 和 x 的内积。sign 是符号函数，即<br>$$<br>sign(x)=\begin{cases}<br>+1, &amp; x\ge0 \<br>-1,&amp; x&lt;0 \<br>\end{cases}<br>$$</p>
+</blockquote>
+<p>感知机是一种线性分类模型，属于判别模型。它的<strong>假设空间</strong>是定义在<strong>特征空间</strong>中的所有线性分类模型（线性分类器），即函数集合 ${f|f(x)=w\cdot x+b}$</p>
+<p><strong>感知机的集合解释：</strong></p>
+<p>线性方程 $w\cdot x+b=0$ 对应于特征空间中的一个超平面 $S$，其中，<font color=red>$w$ 是超平面的法向量，$b$ 是截距。</font>这个超平面将特征空间划分成了两个部分。位于两个部分的点（特征向量）分别被称为正、负两类。因此，$S$ 称为分离超平面。</p>
+<h3 id="感知机学习策略"><a href="#感知机学习策略" class="headerlink" title="感知机学习策略"></a>感知机学习策略</h3><h4 id="数据集的线性可分性"><a href="#数据集的线性可分性" class="headerlink" title="数据集的线性可分性"></a>数据集的线性可分性</h4><h4 id="感知机学习策略-1"><a href="#感知机学习策略-1" class="headerlink" title="感知机学习策略"></a>感知机学习策略</h4><p>假设<strong>训练数据集是线性可分</strong>的，感知机的学习目标是求一个能够将训练集<strong>正实例点</strong>和<strong>负实例点</strong>完全正确分开的分离超平面。为了找出这样的超平面，即确定确定感知机模型的参数 $w, b$ 需要制定一个学习策略，<font color=red>即定义（经验）损失函数并将损失函数最小化。</font></p>
+<p>损失函数的一个自然选择是误分类点总数。但是，这样的损失函数不是参数 $w,b$ 的连续可导函数，不易优化。</p>
+<p><font color=red>损失函数的另一个选择是误分类点到超平面 $S$ 的总距离，这是感知机所采用的。</font>👏</p>
+<blockquote>
+<p>首先写出输入空间 $R^{n}$ 中任意一点 $x_{0}$ 到超平面 $S$ 的距离：<br>$$<br>\frac{1}{||w||}|w\cdot x_{0}+b|<br>$$<br>这里，$||w||$ 是 $w$ 的 $L_{2}$ 范数。</p>
+<p>其次，对于误分类的数据 $(x_{i}, y_{i})$ 来说，<br>$$<br>-y_{i}(w\cdot x_{i}+b)&gt;0<br>$$<br>恒成立，因为当 $w\cdot x_{i}+b&gt;0$ 时，$y_{i}=-1$；当 $w\cdot x_{i}+b&lt;0$ 时，$y_{i}=+1$。因此，误分类点到超平面的距离是<br>$$<br>-\frac{1}{||w||}y_{i}(w\cdot x_{i}+b)<br>$$<br>这样，假设超平面 $S$ 的误分类点集合为 $M$，那么所有误分类点到超平面 $S$ 的总距离为<br>$$<br>-\frac{1}{||w||}\sum_{x_{i}\in M}y_{i}(w\cdot x_{i}+b)<br>$$<br>不考虑 $\frac{1}{||w||}$，就得到了感知机学习的损失函数。</p>
+</blockquote>
+<p>给定训练集<br>$$<br>T = {(x_{1}, y_{1}),\ (x_{2}, y_{2}),\cdots,(x_{N}, y_{N})}<br>$$<br>其中，$x_{i} \in X = R^{n}$，$y_{i}\in Y={-1, +1}$，$i=1, 2, \cdots, N$。感知机 sign(w*x+b) 学习的损失函数定义为<br>$$<br>L(w, b)=-\sum_{x_{i}\in M}y_{i}(w\cdot x_{i}+b)<br>$$<br>其中， $M$ 为误分类点集合。这个损失函数就是感知机学习的经验风险函数。</p>
+<p><font color=red>感知机学习的策略是在假设空间中选取使<strong>损失函数最小</strong>的模型参数 $w,b$，即感知机模型。</font></p>
+<h3 id="感知机学习算法"><a href="#感知机学习算法" class="headerlink" title="感知机学习算法"></a>感知机学习算法</h3><p>感知机学习问题转化为损失函数的最优化问题，最优化的方法是随机梯度下降。</p>
+<h4 id="感知机学习算法的原始形式"><a href="#感知机学习算法的原始形式" class="headerlink" title="感知机学习算法的原始形式"></a>感知机学习算法的原始形式</h4><p><strong>极小化目标函数：</strong><br>$$<br>\underset{w,b}{min}L(w, b)=-\sum_{x_{i}\in M}y_{i}(w\cdot x_{i}+b)<br>$$<br>感知机学习算法是误分类驱动的，具体采用随机梯度下降法（stochastic gradient descent）。首先，任意选取一个超平面 $w_{0},b_{0}$，然后使用 SGD 不断地极小化目标函数。极小化的过程不是一次使 $M$ 中所有误分类点的梯度下降，而是一次随机选取一个误分类点使其梯度下降。</p>
+<p>假设，$M$ 是固定的，那么损失函数 $L(w, b)$ 的梯度由下式给出。<br>$$<br>\bigtriangledown_{w}L(w,b)=-\sum_{x_{i}\in M}y_{i}x_{i}\<br>\bigtriangledown_{b}L(w,b)=-\sum_{x_{i}\in M}y_{i}<br>$$<br>随机选取一个误分类点 $(x_{i}, y_{i})$，对 $w,b$ 进行更新：<br>$$<br>w \longleftarrow w + \eta y_{i}x_{i}\<br>b \longleftarrow b + \eta y_{i}<br>$$<br>式中，$\eta\ (0&lt;\eta \le 1)$ 是步长，在统计学习中称为学习率（learning rate）。这样，通过迭代可以期待损失函数不断减小，直到为 0。综上所述得到如下算法：</p>
+<p><strong>算法 2.1</strong>（感知机学习算法的原始形式）</p>
+<p>输入：训练数据集 $T={(x_{1}, y_{1}),\ (x_{2}, y_{2}),\cdots,(x_{N}, y_{N})}$，其中，$x_{i} \in X = R^{n}$，$y_{i}\in Y={-1, +1}$，$i=1, 2, \cdots, N$；学习率：$\eta\ (0&lt;\eta \le 1)$</p>
+<p>输出：$w,b$；感知机模型 $f(x)=sign(w\cdot x+b)$。</p>
+<ol>
+<li><p>选取初值 $w_{0},b_{0}$；</p>
+</li>
+<li><p>在训练集中选取数据 $(x_{i}, y_{i})$;</p>
+</li>
+<li><p>如果 $y_{i}(w\cdot x_{i}+b) \le 0$，更新参数<br>$$<br>w \longleftarrow w + \eta y_{i}x_{i}\<br>b \longleftarrow b + \eta y_{i}<br>$$</p>
+</li>
+<li><p>转至 2，直到训练集中没有误分类点。</p>
+</li>
+</ol>
+<h4 id="感知机学习算法的对偶形式"><a href="#感知机学习算法的对偶形式" class="headerlink" title="感知机学习算法的对偶形式"></a>感知机学习算法的对偶形式</h4><blockquote>
+<p>对偶形式的基本想法是，将 $w$ 和 $b$ 表示为实例 $x_{i}$ 和标记 $y_{i}$ 的线性组合的形式，通过求解其系数而求得 $w$ 和 $b$。</p>
+</blockquote>
+<p>输入：训练数据集 $T={(x_{1}, y_{1}),\ (x_{2}, y_{2}),\cdots,(x_{N}, y_{N})}$，其中，$x_{i} \in X = R^{n}$，$y_{i}\in Y={-1, +1}$，$i=1, 2, \cdots, N$；学习率：$\eta\ (0&lt;\eta \le 1)$</p>
+<p>输出：$a ,b$；感知机模型 $f(x)=sign(\sum^{N}<em>{j=1}a</em>{j}y_{j}x_{j}\vdot x+b)$，其中，$a=(a_{1},a_{2},\cdots,a_{N})^{T}$。</p>
+<ol>
+<li><p>$a\longleftarrow 0$，$b\longleftarrow 0$；</p>
+</li>
+<li><p>在训练集中选取数据 $(x_{i}, y_{i})$；</p>
+</li>
+<li><p>如果 $y_{i}(\sum^{N}<em>{j=1}a</em>{j}y_{j}x_{j}\cdot x_{i}+b)\le0$，<br>$$<br>a_{i}\longleftarrow a_{i}+\eta\<br>b\longleftarrow b+\eta y_{i}<br>$$</p>
+</li>
+<li><p>转至 2，直到没有误分类数据。</p>
+</li>
+</ol>
+<p>对偶形式中训练实例仅以内积形式出现。为了方便，可以预先将训练集中实例的内积计算出来，并以矩阵形式存储，这个矩阵就是所谓的 Gram 矩阵（gram matrix）<br>$$<br>G = [x_{i}\cdot x_{j}]_{N\times N}<br>$$</p>
+<h3 id="本章概要"><a href="#本章概要" class="headerlink" title="本章概要"></a>本章概要</h3><ol>
+<li><p>感知机是根据输入实例的特征向量 $x$ 对其进行<strong>二分类</strong>的线性分类模型：<br>$$<br>f(x)=sign(w\cdot x+b)<br>$$</p>
+</li>
+<li><p>感知机学习策略是<strong>极小化损失函数</strong>：<br>$$<br>\underset{w,b}{min}L(w, b)=-\sum_{x_{i}\in M}y_{i}(w\cdot x_{i}+b)<br>$$<br>损失函数对应于误分类点到分离超平面的总距离。</p>
+</li>
+<li><p>感知机学习算法是基于<strong>随机梯度下降</strong>的对损失函数的<strong>最优化算法</strong>。有<strong>原始形式</strong>和<strong>对偶形式</strong>。</p>
+</li>
+<li><p>当数据集线性可分时，感知机的学习算法时收敛的。</p>
+</li>
+</ol>
+<p>当训练数据集线性可分时，感知机学习算法存在无穷多个解，其解由于不同的初值或不同的迭代顺序而可能有所不同。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>MarkDown 语法</title>
     <url>/blog/2021/11/28/MarkDown%20introduce/</url>
     <content><![CDATA[<h1 id="MarkDown-语法总结"><a href="#MarkDown-语法总结" class="headerlink" title="MarkDown 语法总结"></a>MarkDown 语法总结</h1><h2 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h2><ul>
@@ -46,6 +116,83 @@
       </categories>
       <tags>
         <tag>MarkDown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python Usage</title>
+    <url>/blog/2022/02/20/Python/</url>
+    <content><![CDATA[<h3 id="使用setattr-self-k-v-，为类设置新实例属性并且赋值！"><a href="#使用setattr-self-k-v-，为类设置新实例属性并且赋值！" class="headerlink" title="使用setattr(self, k, v)，为类设置新实例属性并且赋值！"></a>使用setattr(self, k, v)，为类设置新实例属性并且赋值！</h3><span id="more"></span>
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">config</span>:</span></span><br><span class="line">    <span class="comment"># 以下是类变量，所有实例共享</span></span><br><span class="line">    learning_rate = <span class="number">1e-4</span></span><br><span class="line">    batch_size = <span class="number">16</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, lr, bs, **kwargs</span>):</span></span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        <span class="comment"># 以下是实例变量，为每个实例拥有</span></span><br><span class="line">        self.lr = lr</span><br><span class="line">        self.bs = bs</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> k, v <span class="keyword">in</span> kwargs.items():</span><br><span class="line">            <span class="built_in">setattr</span>(self, k, v)  <span class="comment"># 将其他参数注册为实例变量：self.k = v</span></span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>fast-style-transfer</title>
+    <url>/blog/2022/01/01/fast-style-transfer/</url>
+    <content><![CDATA[<h1 id="fast-style-transfer"><a href="#fast-style-transfer" class="headerlink" title="fast-style-transfer"></a>fast-style-transfer</h1><h2 id="论文“精”读👏"><a href="#论文“精”读👏" class="headerlink" title="论文“精”读👏"></a>论文“精”读👏</h2><blockquote>
+<p>Paper: Perceptual Losses for Real-Time Style Transfer and Super-Resolution</p>
+</blockquote>
+<h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><p>针对 style-transfer 问题，最近的方式是：使用一个 per-pixel 的损失函数，在输出和 ground-truth 之间，训练一个前馈神经网络。平行化的工作已经展示出：高质量的图片可以由定义并优化感知损失函数生成，这个损失函数基于提取于预训练网络的高层次特征。作者将上述两点进行了联合：使用感知损失函数训练前馈神经网络。💥</p>
+<span id="more"></span>
+
+<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>许多经典的问题都可以看作图像转换任务。</p>
+<p>一种解决 image transformation tasks 的办法是 train a feedforward convolutional neural network in a supervised manner，使用一个 a per-pixel loss function 测量输出和 ground-truth images 的差异。这种方式是高效的在测试阶段，它只需要在已经训练过的网络上前向计算！</p>
+<p>然而，这些方式使用的 per-pixel losses 不能够捕捉到输出和 ground-truth images 之间的感知差异！例如：如果图片 A 是由 B offsets 1 pixel 得到的，尽管他们的感知相似，但是他们在 per-pixel losses 上差异很大！🤣</p>
+<p>最近的工作表明：高质量的图片可以由感知损失函数生成，它不是基于 pixel，而是基于使用预训练网络提取的高层图像特征表示之间的差异。Images are generated by minimizing a loss function.</p>
+<p>本 paper 联合了上述两种方法：train a feedforward convolutional neural network 和感知损失函数。对于图片转换任务，作者训练了一个前馈转换网络：transformation networks，并没使用 per-pixel losses，而是使用感知损失函数。在训练期间，相比于per-pixel losses，perceptual losses 测量图像相似性鲁棒性更强，在测试阶段，转换网络可以实时运行。</p>
+<p>我们在两个任务上进行实验：风格迁移和超分辨率。对于风格迁移，输出必须在语义上和输入相似，尽管颜色和纹理发生的极端变化。</p>
+<h3 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h3><h4 id="Feed-forward-image-transformation"><a href="#Feed-forward-image-transformation" class="headerlink" title="Feed-forward image transformation"></a>Feed-forward image transformation</h4><p>The architecture of our transformation networks are inspired by  **Fully convolutional networks for semantic segmentation. CVPR (2015)**，which use in-network downsampling to reduce the spatial extent of feature maps followed by in-network upsampling to produce the final output image.</p>
+<h4 id="Perceptual-optimization"><a href="#Perceptual-optimization" class="headerlink" title="Perceptual optimization"></a>Perceptual optimization</h4><p>很多 paper 从图像卷积后多个不同的 feature map 中提取图像信息</p>
+<h4 id="Style-Transfer"><a href="#Style-Transfer" class="headerlink" title="Style Transfer"></a>Style Transfer</h4><p>Gatys 的工作，最初的风格迁移办法</p>
+<h4 id="Image-super-resolution"><a href="#Image-super-resolution" class="headerlink" title="Image super-resolution"></a>Image super-resolution</h4><p>略</p>
+<h3 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h3><p>整个系统由两个部分组成：image transformation network &amp;  a loss network</p>
+<p>转换网络是一个深层残差卷积神经网络，他将输入图片转换成输出图片，它使用 <strong>stochastic gradient descent（SGD）</strong> 最小化联合 loss function 进行训练。🎈</p>
+<img src="net.png" style="zoom:60%;" />
+
+<h4 id="Image-Transformation-Networks"><a href="#Image-Transformation-Networks" class="headerlink" title="Image Transformation Networks"></a>Image Transformation Networks</h4><p>没有使用任何 pooling 层，使用小 stride 卷积实现 downsampling &amp; upsampling（?）</p>
+<p>网络主体由 5 个残差 block 组成，其结构如下： <a href="http://torch.ch/blog/2016/02/04/resnets.html%EF%BC%8C%E6%89%80%E6%9C%89%E7%9A%84%E9%9D%9E%E6%AE%8B%E5%B7%AE%E5%8D%B7%E7%A7%AF%E5%B1%82%E5%90%8E%E8%B7%9F%E4%B8%80%E4%B8%AA">http://torch.ch/blog/2016/02/04/resnets.html，所有的非残差卷积层后跟一个</a> batch Norm 和一个 RELU，除了输出层使用 tanh ensure that the output image has pixels in the range [0, 255]. Other than the first and last layers which use 9 × 9 kernels, all convolutional layers use 3 × 3 kernels. The exact architectures of all our networks can be found in the supplementary material.</p>
+<h5 id="Inputs-and-Outputs"><a href="#Inputs-and-Outputs" class="headerlink" title="Inputs and Outputs."></a>Inputs and Outputs.</h5><p>the input and output are both color images of shape 3 × 256 × 256.</p>
+<h5 id="Downsampling-and-Upsampling"><a href="#Downsampling-and-Upsampling" class="headerlink" title="Downsampling and Upsampling"></a>Downsampling and Upsampling</h5><p>对于风格迁移，网络使用2个 stride=2 的卷积层对输入下采样，之后跟随几个残差 block ，然后使用2个 stride=1/2 的卷积层进行上采样。尽管输入和输出有相同的大小，但是，上、下采样有一定的好处：</p>
+<ul>
+<li><p>computational</p>
+<blockquote>
+<p>After downsampling, we can therefore use a larger network for the same computational cost.</p>
+</blockquote>
+<p>计算量相同的情况下，下采样可以使得卷积核的数目变多，这也就意味着增大了网络的规模。🥳</p>
+</li>
+<li><p>effective receptive field sizes</p>
+<blockquote>
+<p> After downsampling by a factor of D, each 3×3 convolution instead increases effective receptive field size by 2D, giving larger effective receptive fields with the same number of layers.</p>
+</blockquote>
+<p>下采样增大了卷积核感受野（显然😊）</p>
+</li>
+</ul>
+<h4 id="Residual-Connections"><a href="#Residual-Connections" class="headerlink" title="Residual Connections"></a>Residual Connections</h4><blockquote>
+<p>The body of our network thus consists of several residual blocks, each of which contains two 3 × 3 convolutional layers. We use the residual block design of [44], shown in the supplementary material.</p>
+</blockquote>
+<h4 id="Perceptual-Loss-Functions"><a href="#Perceptual-Loss-Functions" class="headerlink" title="Perceptual Loss Functions"></a>Perceptual Loss Functions</h4><blockquote>
+<p>We define two perceptual loss functions that measure high-level perceptual and semantic differences between images.</p>
+</blockquote>
+<p><strong>定义了两个损失函数：</strong></p>
+<h5 id="Feature-Reconstruction-Loss"><a href="#Feature-Reconstruction-Loss" class="headerlink" title="Feature Reconstruction Loss"></a>Feature Reconstruction Loss</h5><blockquote>
+<p>The feature reconstruction loss is the (squared, normalized) Euclidean distance between feature representations</p>
+</blockquote>
+<p>feature map 之间的欧式距离，和 Gatys 的一样！</p>
+<h5 id="Style-Reconstruction-Loss"><a href="#Style-Reconstruction-Loss" class="headerlink" title="Style Reconstruction Loss"></a>Style Reconstruction Loss</h5><p>和 Gatys 的一样！</p>
+]]></content>
+      <categories>
+        <category>DeepLearning</category>
+      </categories>
+      <tags>
+        <tag>TransferLearning</tag>
+        <tag>DeepLearning</tag>
       </tags>
   </entry>
   <entry>
@@ -201,68 +348,6 @@
       </categories>
       <tags>
         <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>fast-style-transfer</title>
-    <url>/blog/2022/01/01/fast-style-transfer/</url>
-    <content><![CDATA[<h1 id="fast-style-transfer"><a href="#fast-style-transfer" class="headerlink" title="fast-style-transfer"></a>fast-style-transfer</h1><h2 id="论文“精”读👏"><a href="#论文“精”读👏" class="headerlink" title="论文“精”读👏"></a>论文“精”读👏</h2><blockquote>
-<p>Paper: Perceptual Losses for Real-Time Style Transfer and Super-Resolution</p>
-</blockquote>
-<h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><p>针对 style-transfer 问题，最近的方式是：使用一个 per-pixel 的损失函数，在输出和 ground-truth 之间，训练一个前馈神经网络。平行化的工作已经展示出：高质量的图片可以由定义并优化感知损失函数生成，这个损失函数基于提取于预训练网络的高层次特征。作者将上述两点进行了联合：使用感知损失函数训练前馈神经网络。💥</p>
-<span id="more"></span>
-
-<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>许多经典的问题都可以看作图像转换任务。</p>
-<p>一种解决 image transformation tasks 的办法是 train a feedforward convolutional neural network in a supervised manner，使用一个 a per-pixel loss function 测量输出和 ground-truth images 的差异。这种方式是高效的在测试阶段，它只需要在已经训练过的网络上前向计算！</p>
-<p>然而，这些方式使用的 per-pixel losses 不能够捕捉到输出和 ground-truth images 之间的感知差异！例如：如果图片 A 是由 B offsets 1 pixel 得到的，尽管他们的感知相似，但是他们在 per-pixel losses 上差异很大！🤣</p>
-<p>最近的工作表明：高质量的图片可以由感知损失函数生成，它不是基于 pixel，而是基于使用预训练网络提取的高层图像特征表示之间的差异。Images are generated by minimizing a loss function.</p>
-<p>本 paper 联合了上述两种方法：train a feedforward convolutional neural network 和感知损失函数。对于图片转换任务，作者训练了一个前馈转换网络：transformation networks，并没使用 per-pixel losses，而是使用感知损失函数。在训练期间，相比于per-pixel losses，perceptual losses 测量图像相似性鲁棒性更强，在测试阶段，转换网络可以实时运行。</p>
-<p>我们在两个任务上进行实验：风格迁移和超分辨率。对于风格迁移，输出必须在语义上和输入相似，尽管颜色和纹理发生的极端变化。</p>
-<h3 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h3><h4 id="Feed-forward-image-transformation"><a href="#Feed-forward-image-transformation" class="headerlink" title="Feed-forward image transformation"></a>Feed-forward image transformation</h4><p>The architecture of our transformation networks are inspired by  **Fully convolutional networks for semantic segmentation. CVPR (2015)**，which use in-network downsampling to reduce the spatial extent of feature maps followed by in-network upsampling to produce the final output image.</p>
-<h4 id="Perceptual-optimization"><a href="#Perceptual-optimization" class="headerlink" title="Perceptual optimization"></a>Perceptual optimization</h4><p>很多 paper 从图像卷积后多个不同的 feature map 中提取图像信息</p>
-<h4 id="Style-Transfer"><a href="#Style-Transfer" class="headerlink" title="Style Transfer"></a>Style Transfer</h4><p>Gatys 的工作，最初的风格迁移办法</p>
-<h4 id="Image-super-resolution"><a href="#Image-super-resolution" class="headerlink" title="Image super-resolution"></a>Image super-resolution</h4><p>略</p>
-<h3 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h3><p>整个系统由两个部分组成：image transformation network &amp;  a loss network</p>
-<p>转换网络是一个深层残差卷积神经网络，他将输入图片转换成输出图片，它使用 <strong>stochastic gradient descent（SGD）</strong> 最小化联合 loss function 进行训练。🎈</p>
-<img src="net.png" style="zoom:60%;" />
-
-<h4 id="Image-Transformation-Networks"><a href="#Image-Transformation-Networks" class="headerlink" title="Image Transformation Networks"></a>Image Transformation Networks</h4><p>没有使用任何 pooling 层，使用小 stride 卷积实现 downsampling &amp; upsampling（?）</p>
-<p>网络主体由 5 个残差 block 组成，其结构如下： <a href="http://torch.ch/blog/2016/02/04/resnets.html%EF%BC%8C%E6%89%80%E6%9C%89%E7%9A%84%E9%9D%9E%E6%AE%8B%E5%B7%AE%E5%8D%B7%E7%A7%AF%E5%B1%82%E5%90%8E%E8%B7%9F%E4%B8%80%E4%B8%AA">http://torch.ch/blog/2016/02/04/resnets.html，所有的非残差卷积层后跟一个</a> batch Norm 和一个 RELU，除了输出层使用 tanh ensure that the output image has pixels in the range [0, 255]. Other than the first and last layers which use 9 × 9 kernels, all convolutional layers use 3 × 3 kernels. The exact architectures of all our networks can be found in the supplementary material.</p>
-<h5 id="Inputs-and-Outputs"><a href="#Inputs-and-Outputs" class="headerlink" title="Inputs and Outputs."></a>Inputs and Outputs.</h5><p>the input and output are both color images of shape 3 × 256 × 256.</p>
-<h5 id="Downsampling-and-Upsampling"><a href="#Downsampling-and-Upsampling" class="headerlink" title="Downsampling and Upsampling"></a>Downsampling and Upsampling</h5><p>对于风格迁移，网络使用2个 stride=2 的卷积层对输入下采样，之后跟随几个残差 block ，然后使用2个 stride=1/2 的卷积层进行上采样。尽管输入和输出有相同的大小，但是，上、下采样有一定的好处：</p>
-<ul>
-<li><p>computational</p>
-<blockquote>
-<p>After downsampling, we can therefore use a larger network for the same computational cost.</p>
-</blockquote>
-<p>计算量相同的情况下，下采样可以使得卷积核的数目变多，这也就意味着增大了网络的规模。🥳</p>
-</li>
-<li><p>effective receptive field sizes</p>
-<blockquote>
-<p> After downsampling by a factor of D, each 3×3 convolution instead increases effective receptive field size by 2D, giving larger effective receptive fields with the same number of layers.</p>
-</blockquote>
-<p>下采样增大了卷积核感受野（显然😊）</p>
-</li>
-</ul>
-<h4 id="Residual-Connections"><a href="#Residual-Connections" class="headerlink" title="Residual Connections"></a>Residual Connections</h4><blockquote>
-<p>The body of our network thus consists of several residual blocks, each of which contains two 3 × 3 convolutional layers. We use the residual block design of [44], shown in the supplementary material.</p>
-</blockquote>
-<h4 id="Perceptual-Loss-Functions"><a href="#Perceptual-Loss-Functions" class="headerlink" title="Perceptual Loss Functions"></a>Perceptual Loss Functions</h4><blockquote>
-<p>We define two perceptual loss functions that measure high-level perceptual and semantic differences between images.</p>
-</blockquote>
-<p><strong>定义了两个损失函数：</strong></p>
-<h5 id="Feature-Reconstruction-Loss"><a href="#Feature-Reconstruction-Loss" class="headerlink" title="Feature Reconstruction Loss"></a>Feature Reconstruction Loss</h5><blockquote>
-<p>The feature reconstruction loss is the (squared, normalized) Euclidean distance between feature representations</p>
-</blockquote>
-<p>feature map 之间的欧式距离，和 Gatys 的一样！</p>
-<h5 id="Style-Reconstruction-Loss"><a href="#Style-Reconstruction-Loss" class="headerlink" title="Style Reconstruction Loss"></a>Style Reconstruction Loss</h5><p>和 Gatys 的一样！</p>
-]]></content>
-      <categories>
-        <category>DeepLearning</category>
-      </categories>
-      <tags>
-        <tag>TransferLearning</tag>
-        <tag>DeepLearning</tag>
       </tags>
   </entry>
   <entry>
@@ -572,9 +657,9 @@
         <category>DeepLearning</category>
       </categories>
       <tags>
+        <tag>Python</tag>
         <tag>TransferLearning</tag>
         <tag>DeepLearning</tag>
-        <tag>Python</tag>
         <tag>keras</tag>
       </tags>
   </entry>
