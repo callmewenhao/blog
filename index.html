@@ -155,7 +155,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://callmewenhao.github.io/blog/2022/02/20/Python/">
+    <link itemprop="mainEntityOfPage" href="https://callmewenhao.github.io/blog/2022/02/20/PythonUsage/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/blog/images/%E7%8E%AF%E5%A4%AA%E5%B9%B3%E6%B4%8B1.jpg">
@@ -169,7 +169,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/blog/2022/02/20/Python/" class="post-title-link" itemprop="url">Python Usage</a>
+            <a href="/blog/2022/02/20/PythonUsage/" class="post-title-link" itemprop="url">Python Usage</a>
         </h2>
 
         <div class="post-meta">
@@ -178,10 +178,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-02-20 00:00:00 / 修改时间：20:15:27" itemprop="dateCreated datePublished" datetime="2022-02-20T00:00:00+08:00">2022-02-20</time>
+              <time title="创建时间：2022-02-20 00:00:00" itemprop="dateCreated datePublished" datetime="2022-02-20T00:00:00+08:00">2022-02-20</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-03-10 22:14:12" itemprop="dateModified" datetime="2022-03-10T22:14:12+08:00">2022-03-10</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -203,15 +209,27 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="使用setattr-self-k-v-，为类设置新实例属性并且赋值！"><a href="#使用setattr-self-k-v-，为类设置新实例属性并且赋值！" class="headerlink" title="使用setattr(self, k, v)，为类设置新实例属性并且赋值！"></a>使用setattr(self, k, v)，为类设置新实例属性并且赋值！</h3>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/blog/2022/02/20/Python/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
+          <span id="more"></span>
+
+<h2 id="使用-import-引用包"><a href="#使用-import-引用包" class="headerlink" title="使用 import 引用包"></a>使用 import 引用包</h2><p><strong>项目树</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">importDemoDir</span><br><span class="line">|---package</span><br><span class="line">|   |---package1</span><br><span class="line">|   |   |---init.py</span><br><span class="line">|   |   |---module1.py</span><br><span class="line">|   |   |---module2.py</span><br><span class="line">|   |</span><br><span class="line">|   |---package2</span><br><span class="line">|   |   |---init.py</span><br><span class="line">|   |   |---module3.py</span><br><span class="line">|</span><br><span class="line">|---main.py</span><br><span class="line">|</span><br></pre></td></tr></table></figure>
+
+<p><strong>绝对引用</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># main.py</span></span><br><span class="line"><span class="keyword">from</span> package.package1 <span class="keyword">import</span> module1</span><br><span class="line"><span class="keyword">from</span> package.package1 <span class="keyword">import</span> module2</span><br><span class="line"><span class="keyword">from</span> package.package2 <span class="keyword">import</span> module3</span><br></pre></td></tr></table></figure>
+
+<p><strong>相对引用</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># main.py</span></span><br><span class="line"><span class="keyword">from</span> .package1 <span class="keyword">import</span> module1  <span class="comment"># 1个.代表本级目录</span></span><br><span class="line"><span class="keyword">from</span> .package1 <span class="keyword">import</span> module2  <span class="comment"># 2个..代表上级目录</span></span><br><span class="line"><span class="keyword">from</span> .package2 <span class="keyword">import</span> module3  <span class="comment"># 3个...代表上上级目录</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用相对应用的文件将无法作为程序入口，只可以被其他文件调用</span></span><br><span class="line"><span class="comment"># 一般在 package 文件中使用相对引用</span></span><br><span class="line"><span class="comment"># module2.py</span></span><br><span class="line"><span class="keyword">from</span> ..package2 <span class="keyword">import</span> module3  <span class="comment"># 注意相对引用时不可以跨越顶层目录！</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="importlib"><a href="#importlib" class="headerlink" title="importlib"></a>importlib</h2><blockquote>
+<p>这里的作用主要是动态导入，在代码中根据需要导入自己写好的库</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">m1 = importlib.import_module(name=<span class="string">&quot;package.package1.module1&quot;</span>)  <span class="comment"># 绝对引入</span></span><br><span class="line">m2 = importlib.import_module(<span class="string">&quot;.package1.module2&quot;</span>, package=<span class="string">&quot;package&quot;</span>)  <span class="comment"># 相对引入</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="使用setattr-self-k-v-，为类设置新实例属性并且赋值！"><a href="#使用setattr-self-k-v-，为类设置新实例属性并且赋值！" class="headerlink" title="使用setattr(self, k, v)，为类设置新实例属性并且赋值！"></a>使用setattr(self, k, v)，为类设置新实例属性并且赋值！</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">config</span>:</span></span><br><span class="line">    <span class="comment"># 以下是类变量，所有实例共享</span></span><br><span class="line">    learning_rate = <span class="number">1e-4</span></span><br><span class="line">    batch_size = <span class="number">16</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, lr, bs, **kwargs</span>):</span></span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        <span class="comment"># 以下是实例变量，为每个实例拥有</span></span><br><span class="line">        self.lr = lr</span><br><span class="line">        self.bs = bs</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> k, v <span class="keyword">in</span> kwargs.items():</span><br><span class="line">            <span class="built_in">setattr</span>(self, k, v)  <span class="comment"># 将其他参数注册为实例变量：self.k = v</span></span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+
+
       
     </div>
 
@@ -230,7 +248,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://callmewenhao.github.io/blog/2022/01/19/2%E6%84%9F%E7%9F%A5%E6%9C%BA/">
+    <link itemprop="mainEntityOfPage" href="https://callmewenhao.github.io/blog/2022/02/20/PytorchUsage/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/blog/images/%E7%8E%AF%E5%A4%AA%E5%B9%B3%E6%B4%8B1.jpg">
@@ -244,7 +262,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/blog/2022/01/19/2%E6%84%9F%E7%9F%A5%E6%9C%BA/" class="post-title-link" itemprop="url">未命名</a>
+            <a href="/blog/2022/02/20/PytorchUsage/" class="post-title-link" itemprop="url">Python Usage</a>
         </h2>
 
         <div class="post-meta">
@@ -253,9 +271,24 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-01-19 14:02:47 / 修改时间：14:03:41" itemprop="dateCreated datePublished" datetime="2022-01-19T14:02:47+08:00">2022-01-19</time>
+              <time title="创建时间：2022-02-20 00:00:00" itemprop="dateCreated datePublished" datetime="2022-02-20T00:00:00+08:00">2022-02-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-03-10 22:11:42" itemprop="dateModified" datetime="2022-03-10T22:11:42+08:00">2022-03-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/Pytorch/" itemprop="url" rel="index"><span itemprop="name">Pytorch</span></a>
+                </span>
             </span>
 
           
@@ -269,72 +302,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="感知机"><a href="#感知机" class="headerlink" title="感知机"></a>感知机</h2><blockquote>
-<p>统计学习方法（李航）</p>
-<p>感知机是<strong>二分类</strong>的线性分类模型，输入为实例的特征向量，输出为实例的类别：取 +1 &amp; -1 两个值。</p>
-</blockquote>
-<h3 id="感知机模型s"><a href="#感知机模型s" class="headerlink" title="感知机模型s"></a>感知机模型s</h3><p><strong>定义：</strong></p>
-<blockquote>
-<p>输入空间（特征空间）是 $n$ 维实数集的子集： $X \subseteq R^{n}$，输出空间是 $Y={-1, +1}$</p>
-<p>输入 $x\in X$ 表示特征向量，对应于输入空间（特征空间）内的点，输出 $y\in Y$ 表示实例的类别。</p>
-<p>由输入空间到输出空间的映射函数，称为感知机（perceptron）。<br>$$<br>f(x)=sign(w\cdot x+b)<br>$$<br>其中：$w,\ b$ 为感知机参数，$w\in R^{n}$ 叫作权值（weight）或权值向量，$b\in R$ 叫作偏置（bias），$w*x$ 表示w 和 x 的内积。sign 是符号函数，即<br>$$<br>sign(x)=\begin{cases}<br>+1, &amp; x\ge0 \<br>-1,&amp; x&lt;0 \<br>\end{cases}<br>$$</p>
-</blockquote>
-<p>感知机是一种线性分类模型，属于判别模型。它的<strong>假设空间</strong>是定义在<strong>特征空间</strong>中的所有线性分类模型（线性分类器），即函数集合 ${f|f(x)=w\cdot x+b}$</p>
-<p><strong>感知机的集合解释：</strong></p>
-<p>线性方程 $w\cdot x+b=0$ 对应于特征空间中的一个超平面 $S$，其中，<font color=red>$w$ 是超平面的法向量，$b$ 是截距。</font>这个超平面将特征空间划分成了两个部分。位于两个部分的点（特征向量）分别被称为正、负两类。因此，$S$ 称为分离超平面。</p>
-<h3 id="感知机学习策略"><a href="#感知机学习策略" class="headerlink" title="感知机学习策略"></a>感知机学习策略</h3><h4 id="数据集的线性可分性"><a href="#数据集的线性可分性" class="headerlink" title="数据集的线性可分性"></a>数据集的线性可分性</h4><h4 id="感知机学习策略-1"><a href="#感知机学习策略-1" class="headerlink" title="感知机学习策略"></a>感知机学习策略</h4><p>假设<strong>训练数据集是线性可分</strong>的，感知机的学习目标是求一个能够将训练集<strong>正实例点</strong>和<strong>负实例点</strong>完全正确分开的分离超平面。为了找出这样的超平面，即确定确定感知机模型的参数 $w, b$ 需要制定一个学习策略，<font color=red>即定义（经验）损失函数并将损失函数最小化。</font></p>
-<p>损失函数的一个自然选择是误分类点总数。但是，这样的损失函数不是参数 $w,b$ 的连续可导函数，不易优化。</p>
-<p><font color=red>损失函数的另一个选择是误分类点到超平面 $S$ 的总距离，这是感知机所采用的。</font>👏</p>
-<blockquote>
-<p>首先写出输入空间 $R^{n}$ 中任意一点 $x_{0}$ 到超平面 $S$ 的距离：<br>$$<br>\frac{1}{||w||}|w\cdot x_{0}+b|<br>$$<br>这里，$||w||$ 是 $w$ 的 $L_{2}$ 范数。</p>
-<p>其次，对于误分类的数据 $(x_{i}, y_{i})$ 来说，<br>$$<br>-y_{i}(w\cdot x_{i}+b)&gt;0<br>$$<br>恒成立，因为当 $w\cdot x_{i}+b&gt;0$ 时，$y_{i}=-1$；当 $w\cdot x_{i}+b&lt;0$ 时，$y_{i}=+1$。因此，误分类点到超平面的距离是<br>$$<br>-\frac{1}{||w||}y_{i}(w\cdot x_{i}+b)<br>$$<br>这样，假设超平面 $S$ 的误分类点集合为 $M$，那么所有误分类点到超平面 $S$ 的总距离为<br>$$<br>-\frac{1}{||w||}\sum_{x_{i}\in M}y_{i}(w\cdot x_{i}+b)<br>$$<br>不考虑 $\frac{1}{||w||}$，就得到了感知机学习的损失函数。</p>
-</blockquote>
-<p>给定训练集<br>$$<br>T = {(x_{1}, y_{1}),\ (x_{2}, y_{2}),\cdots,(x_{N}, y_{N})}<br>$$<br>其中，$x_{i} \in X = R^{n}$，$y_{i}\in Y={-1, +1}$，$i=1, 2, \cdots, N$。感知机 sign(w*x+b) 学习的损失函数定义为<br>$$<br>L(w, b)=-\sum_{x_{i}\in M}y_{i}(w\cdot x_{i}+b)<br>$$<br>其中， $M$ 为误分类点集合。这个损失函数就是感知机学习的经验风险函数。</p>
-<p><font color=red>感知机学习的策略是在假设空间中选取使<strong>损失函数最小</strong>的模型参数 $w,b$，即感知机模型。</font></p>
-<h3 id="感知机学习算法"><a href="#感知机学习算法" class="headerlink" title="感知机学习算法"></a>感知机学习算法</h3><p>感知机学习问题转化为损失函数的最优化问题，最优化的方法是随机梯度下降。</p>
-<h4 id="感知机学习算法的原始形式"><a href="#感知机学习算法的原始形式" class="headerlink" title="感知机学习算法的原始形式"></a>感知机学习算法的原始形式</h4><p><strong>极小化目标函数：</strong><br>$$<br>\underset{w,b}{min}L(w, b)=-\sum_{x_{i}\in M}y_{i}(w\cdot x_{i}+b)<br>$$<br>感知机学习算法是误分类驱动的，具体采用随机梯度下降法（stochastic gradient descent）。首先，任意选取一个超平面 $w_{0},b_{0}$，然后使用 SGD 不断地极小化目标函数。极小化的过程不是一次使 $M$ 中所有误分类点的梯度下降，而是一次随机选取一个误分类点使其梯度下降。</p>
-<p>假设，$M$ 是固定的，那么损失函数 $L(w, b)$ 的梯度由下式给出。<br>$$<br>\bigtriangledown_{w}L(w,b)=-\sum_{x_{i}\in M}y_{i}x_{i}\<br>\bigtriangledown_{b}L(w,b)=-\sum_{x_{i}\in M}y_{i}<br>$$<br>随机选取一个误分类点 $(x_{i}, y_{i})$，对 $w,b$ 进行更新：<br>$$<br>w \longleftarrow w + \eta y_{i}x_{i}\<br>b \longleftarrow b + \eta y_{i}<br>$$<br>式中，$\eta\ (0&lt;\eta \le 1)$ 是步长，在统计学习中称为学习率（learning rate）。这样，通过迭代可以期待损失函数不断减小，直到为 0。综上所述得到如下算法：</p>
-<p><strong>算法 2.1</strong>（感知机学习算法的原始形式）</p>
-<p>输入：训练数据集 $T={(x_{1}, y_{1}),\ (x_{2}, y_{2}),\cdots,(x_{N}, y_{N})}$，其中，$x_{i} \in X = R^{n}$，$y_{i}\in Y={-1, +1}$，$i=1, 2, \cdots, N$；学习率：$\eta\ (0&lt;\eta \le 1)$</p>
-<p>输出：$w,b$；感知机模型 $f(x)=sign(w\cdot x+b)$。</p>
-<ol>
-<li><p>选取初值 $w_{0},b_{0}$；</p>
-</li>
-<li><p>在训练集中选取数据 $(x_{i}, y_{i})$;</p>
-</li>
-<li><p>如果 $y_{i}(w\cdot x_{i}+b) \le 0$，更新参数<br>$$<br>w \longleftarrow w + \eta y_{i}x_{i}\<br>b \longleftarrow b + \eta y_{i}<br>$$</p>
-</li>
-<li><p>转至 2，直到训练集中没有误分类点。</p>
-</li>
-</ol>
-<h4 id="感知机学习算法的对偶形式"><a href="#感知机学习算法的对偶形式" class="headerlink" title="感知机学习算法的对偶形式"></a>感知机学习算法的对偶形式</h4><blockquote>
-<p>对偶形式的基本想法是，将 $w$ 和 $b$ 表示为实例 $x_{i}$ 和标记 $y_{i}$ 的线性组合的形式，通过求解其系数而求得 $w$ 和 $b$。</p>
-</blockquote>
-<p>输入：训练数据集 $T={(x_{1}, y_{1}),\ (x_{2}, y_{2}),\cdots,(x_{N}, y_{N})}$，其中，$x_{i} \in X = R^{n}$，$y_{i}\in Y={-1, +1}$，$i=1, 2, \cdots, N$；学习率：$\eta\ (0&lt;\eta \le 1)$</p>
-<p>输出：$a ,b$；感知机模型 $f(x)=sign(\sum^{N}<em>{j=1}a</em>{j}y_{j}x_{j}\vdot x+b)$，其中，$a=(a_{1},a_{2},\cdots,a_{N})^{T}$。</p>
-<ol>
-<li><p>$a\longleftarrow 0$，$b\longleftarrow 0$；</p>
-</li>
-<li><p>在训练集中选取数据 $(x_{i}, y_{i})$；</p>
-</li>
-<li><p>如果 $y_{i}(\sum^{N}<em>{j=1}a</em>{j}y_{j}x_{j}\cdot x_{i}+b)\le0$，<br>$$<br>a_{i}\longleftarrow a_{i}+\eta\<br>b\longleftarrow b+\eta y_{i}<br>$$</p>
-</li>
-<li><p>转至 2，直到没有误分类数据。</p>
-</li>
-</ol>
-<p>对偶形式中训练实例仅以内积形式出现。为了方便，可以预先将训练集中实例的内积计算出来，并以矩阵形式存储，这个矩阵就是所谓的 Gram 矩阵（gram matrix）<br>$$<br>G = [x_{i}\cdot x_{j}]_{N\times N}<br>$$</p>
-<h3 id="本章概要"><a href="#本章概要" class="headerlink" title="本章概要"></a>本章概要</h3><ol>
-<li><p>感知机是根据输入实例的特征向量 $x$ 对其进行<strong>二分类</strong>的线性分类模型：<br>$$<br>f(x)=sign(w\cdot x+b)<br>$$</p>
-</li>
-<li><p>感知机学习策略是<strong>极小化损失函数</strong>：<br>$$<br>\underset{w,b}{min}L(w, b)=-\sum_{x_{i}\in M}y_{i}(w\cdot x_{i}+b)<br>$$<br>损失函数对应于误分类点到分离超平面的总距离。</p>
-</li>
-<li><p>感知机学习算法是基于<strong>随机梯度下降</strong>的对损失函数的<strong>最优化算法</strong>。有<strong>原始形式</strong>和<strong>对偶形式</strong>。</p>
-</li>
-<li><p>当数据集线性可分时，感知机的学习算法时收敛的。</p>
-</li>
-</ol>
-<p>当训练数据集线性可分时，感知机学习算法存在无穷多个解，其解由于不同的初值或不同的迭代顺序而可能有所不同。</p>
-
+          <h2 id="Pytorch-Usage"><a href="#Pytorch-Usage" class="headerlink" title="Pytorch Usage"></a>Pytorch Usage</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/blog/2022/02/20/PytorchUsage/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1059,13 +1035,13 @@
       <div class="site-state-item site-state-categories">
             <a href="/blog/categories/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/blog/tags/">
           
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
