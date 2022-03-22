@@ -15,7 +15,7 @@
 
 <span id="more"></span>
 
-<h2 id="并列插入多幅图片"><a href="#并列插入多幅图片" class="headerlink" title="并列插入多幅图片"></a>并列插入多幅图片</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">align</span>=<span class="string">&quot;center&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;001.png&quot;</span> <span class="attr">height</span>=<span class="string">&quot;120&quot;</span> <span class="attr">width</span>=<span class="string">&quot;188&quot;</span> &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;012.png&quot;</span> <span class="attr">height</span>=<span class="string">&quot;120&quot;</span> <span class="attr">width</span>=<span class="string">&quot;188&quot;</span> &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;032.png&quot;</span> <span class="attr">height</span>=<span class="string">&quot;120&quot;</span> <span class="attr">width</span>=<span class="string">&quot;188&quot;</span> &gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="并列插入多幅图片"><a href="#并列插入多幅图片" class="headerlink" title="并列插入多幅图片"></a>并列插入多幅图片</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">align</span>=<span class="string">&quot;center&quot;</span>&gt;</span> <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;images/挂载1.png&quot;</span>&gt;</span> <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">align</span>=<span class="string">&quot;center&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;001.png&quot;</span> <span class="attr">height</span>=<span class="string">&quot;120&quot;</span> <span class="attr">width</span>=<span class="string">&quot;188&quot;</span> &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;012.png&quot;</span> <span class="attr">height</span>=<span class="string">&quot;120&quot;</span> <span class="attr">width</span>=<span class="string">&quot;188&quot;</span> &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;032.png&quot;</span> <span class="attr">height</span>=<span class="string">&quot;120&quot;</span> <span class="attr">width</span>=<span class="string">&quot;188&quot;</span> &gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="字体颜色"><a href="#字体颜色" class="headerlink" title="字体颜色"></a>字体颜色</h2><p>字体颜色：<font color=Blue>Test</font></p>
 <p> <code>&lt;font color=Blue&gt;Test&lt;/font&gt;</code></p>
@@ -321,6 +321,32 @@
       </tags>
   </entry>
   <entry>
+    <title>Hello World</title>
+    <url>/blog/2021/12/01/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<span id="more"></span>
+
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>pip usage</title>
     <url>/blog/2021/12/11/pip-usage/</url>
     <content><![CDATA[<h1 id="Pip-Usage"><a href="#Pip-Usage" class="headerlink" title="Pip Usage"></a>Pip Usage</h1><h2 id="pip-基本语法😉"><a href="#pip-基本语法😉" class="headerlink" title="pip 基本语法😉"></a>pip 基本语法😉</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install SomePackage            # latest version</span><br><span class="line">pip install SomePackage==1.0.4     # specific version</span><br><span class="line">pip install &#x27;SomePackage&gt;=1.0.4&#x27;   # minimum version</span><br></pre></td></tr></table></figure>
@@ -356,32 +382,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/blog/2021/12/01/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<span id="more"></span>
-
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>project_architecture</title>
     <url>/blog/2021/12/07/project-architecture/</url>
     <content><![CDATA[<h1 id="DL-项目的组织架构"><a href="#DL-项目的组织架构" class="headerlink" title="DL 项目的组织架构"></a>DL 项目的组织架构</h1><span id="more"></span>
@@ -396,6 +396,71 @@
       <tags>
         <tag>python</tag>
         <tag>architecture</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>pyYAML Usage</title>
+    <url>/blog/2021/12/11/pyYAML/</url>
+    <content><![CDATA[<h1 id="pyYAML-Usage"><a href="#pyYAML-Usage" class="headerlink" title="pyYAML Usage"></a>pyYAML Usage</h1><p>使用 yaml 文件配置模型以及训练参数，方便调参数！😉</p>
+<p>借鉴文章：<a href="https://zhuanlan.zhihu.com/p/42678768">https://zhuanlan.zhihu.com/p/42678768</a></p>
+<span id="more"></span>
+
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install PyYAML</span><br></pre></td></tr></table></figure>
+
+<h2 id="YAML-基本语法"><a href="#YAML-基本语法" class="headerlink" title="YAML 基本语法"></a>YAML 基本语法</h2><ul>
+<li><p>与Python一样采用缩进区分层级，需要同一层级文件缩进相同，但是不能用TAB，只能使用空格；</p>
+</li>
+<li><p><code>#</code> 表示注释，从它开始到行尾都被忽略；</p>
+</li>
+<li><p>大小写敏感；</p>
+</li>
+<li><p> <code>-</code> 开头，整个文件会被转换为list，其中 <code>-</code> 后的内容属于一个字典；</p>
+</li>
+<li><p><code>:</code> 前后的内容转换为 dictionary 的键值对；</p>
+</li>
+<li><p>单引号内的内容按照字符串输出，不会变成转移字符，双引号内内容存在转义字符会转换</p>
+</li>
+</ul>
+<h3 id="list"><a href="#list" class="headerlink" title="list"></a>list</h3><blockquote>
+<p>parameters.yaml 内容 &amp; .py：</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># exchange to list</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">a</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">b</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">c</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> yaml</span><br><span class="line"><span class="keyword">from</span> yaml <span class="keyword">import</span> CLoader <span class="keyword">as</span> Loader</span><br><span class="line"></span><br><span class="line">f = <span class="built_in">open</span>(<span class="string">&#x27;parameters.yml&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">para = yaml.load(f, Loader)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(para))</span><br><span class="line"><span class="built_in">print</span>(para)</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;class &#x27;list&#x27;&gt;</span><br><span class="line">[&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;]</span><br></pre></td></tr></table></figure>
+
+<h3 id="dictionary"><a href="#dictionary" class="headerlink" title="dictionary"></a>dictionary</h3><blockquote>
+<p>.yml &amp; .py</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># exchange to dictionary</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">zhangsan</span></span><br><span class="line"><span class="attr">age:</span> <span class="number">30</span></span><br><span class="line"><span class="attr">nation:</span> <span class="string">China</span></span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;class &#x27;dict&#x27;&gt;</span><br><span class="line">&#123;&#x27;name&#x27;: &#x27;zhangsan&#x27;, &#x27;age&#x27;: 30, &#x27;nation&#x27;: &#x27;China&#x27;&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="混合转换"><a href="#混合转换" class="headerlink" title="混合转换"></a>混合转换</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># exchange to dictionary</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">zhangsan</span></span><br><span class="line">  <span class="attr">age:</span> <span class="number">30</span></span><br><span class="line">  <span class="attr">nation:</span> <span class="string">China</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">lisi</span></span><br><span class="line">  <span class="attr">age:</span> <span class="number">20</span></span><br><span class="line">  <span class="attr">nation:</span> <span class="string">China</span></span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;class &#x27;list&#x27;&gt;</span><br><span class="line">[&#123;&#x27;name&#x27;: &#x27;zhangsan&#x27;, &#x27;age&#x27;: 30, &#x27;nation&#x27;: &#x27;China&#x27;&#125;,</span><br><span class="line"> &#123;&#x27;name&#x27;: &#x27;lisi&#x27;, &#x27;age&#x27;: 20, &#x27;nation&#x27;: &#x27;China&#x27;&#125;]</span><br></pre></td></tr></table></figure>
+
+<h2 id="pyYAML-Usage-1"><a href="#pyYAML-Usage-1" class="headerlink" title="pyYAML Usage"></a>pyYAML Usage</h2><h3 id="import-package"><a href="#import-package" class="headerlink" title="import package"></a>import package</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> yaml  <span class="comment"># import this package</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="load"><a href="#load" class="headerlink" title="load()"></a>load()</h3><blockquote>
+<p>加载 yaml 文件，返回一个 pyYAML 对象，这个对象是一个包含了键值对的 <code>list</code> 或 <code>dict</code></p>
+</blockquote>
+<p>我们一般使用 <code>load()</code> 就够了</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> yaml</span><br><span class="line"><span class="keyword">from</span> yaml <span class="keyword">import</span> CLoader <span class="keyword">as</span> Loader</span><br><span class="line"></span><br><span class="line">f = <span class="built_in">open</span>(<span class="string">&#x27;parameters.yml&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">para = yaml.load(f, Loader)</span><br><span class="line">total_epoch = para[<span class="string">&#x27;total_epochs&#x27;</span>]</span><br><span class="line">batch_size = para[<span class="string">&#x27;batch_size&#x27;</span>]</span><br><span class="line">learning_rate = <span class="built_in">float</span>(para[<span class="string">&#x27;lr&#x27;</span>])</span><br><span class="line">target_acc = para[<span class="string">&#x27;target_acc&#x27;</span>]</span><br><span class="line">model_name = para[<span class="string">&#x27;model&#x27;</span>]</span><br><span class="line">dataset = para[<span class="string">&#x27;dataset&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+<h3 id="dump"><a href="#dump" class="headerlink" title="dump()"></a>dump()</h3><blockquote>
+<p>将键值对，转换成 yaml 格式</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>YAML</tag>
       </tags>
   </entry>
   <entry>
@@ -566,71 +631,6 @@
         <tag>TransferLearning</tag>
         <tag>DeepLearning</tag>
         <tag>keras</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>pyYAML Usage</title>
-    <url>/blog/2021/12/11/pyYAML/</url>
-    <content><![CDATA[<h1 id="pyYAML-Usage"><a href="#pyYAML-Usage" class="headerlink" title="pyYAML Usage"></a>pyYAML Usage</h1><p>使用 yaml 文件配置模型以及训练参数，方便调参数！😉</p>
-<p>借鉴文章：<a href="https://zhuanlan.zhihu.com/p/42678768">https://zhuanlan.zhihu.com/p/42678768</a></p>
-<span id="more"></span>
-
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install PyYAML</span><br></pre></td></tr></table></figure>
-
-<h2 id="YAML-基本语法"><a href="#YAML-基本语法" class="headerlink" title="YAML 基本语法"></a>YAML 基本语法</h2><ul>
-<li><p>与Python一样采用缩进区分层级，需要同一层级文件缩进相同，但是不能用TAB，只能使用空格；</p>
-</li>
-<li><p><code>#</code> 表示注释，从它开始到行尾都被忽略；</p>
-</li>
-<li><p>大小写敏感；</p>
-</li>
-<li><p> <code>-</code> 开头，整个文件会被转换为list，其中 <code>-</code> 后的内容属于一个字典；</p>
-</li>
-<li><p><code>:</code> 前后的内容转换为 dictionary 的键值对；</p>
-</li>
-<li><p>单引号内的内容按照字符串输出，不会变成转移字符，双引号内内容存在转义字符会转换</p>
-</li>
-</ul>
-<h3 id="list"><a href="#list" class="headerlink" title="list"></a>list</h3><blockquote>
-<p>parameters.yaml 内容 &amp; .py：</p>
-</blockquote>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># exchange to list</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">a</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">b</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">c</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> yaml</span><br><span class="line"><span class="keyword">from</span> yaml <span class="keyword">import</span> CLoader <span class="keyword">as</span> Loader</span><br><span class="line"></span><br><span class="line">f = <span class="built_in">open</span>(<span class="string">&#x27;parameters.yml&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">para = yaml.load(f, Loader)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(para))</span><br><span class="line"><span class="built_in">print</span>(para)</span><br></pre></td></tr></table></figure>
-
-<p>输出：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;class &#x27;list&#x27;&gt;</span><br><span class="line">[&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;]</span><br></pre></td></tr></table></figure>
-
-<h3 id="dictionary"><a href="#dictionary" class="headerlink" title="dictionary"></a>dictionary</h3><blockquote>
-<p>.yml &amp; .py</p>
-</blockquote>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># exchange to dictionary</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">zhangsan</span></span><br><span class="line"><span class="attr">age:</span> <span class="number">30</span></span><br><span class="line"><span class="attr">nation:</span> <span class="string">China</span></span><br></pre></td></tr></table></figure>
-
-<p>输出：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;class &#x27;dict&#x27;&gt;</span><br><span class="line">&#123;&#x27;name&#x27;: &#x27;zhangsan&#x27;, &#x27;age&#x27;: 30, &#x27;nation&#x27;: &#x27;China&#x27;&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="混合转换"><a href="#混合转换" class="headerlink" title="混合转换"></a>混合转换</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># exchange to dictionary</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">zhangsan</span></span><br><span class="line">  <span class="attr">age:</span> <span class="number">30</span></span><br><span class="line">  <span class="attr">nation:</span> <span class="string">China</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">lisi</span></span><br><span class="line">  <span class="attr">age:</span> <span class="number">20</span></span><br><span class="line">  <span class="attr">nation:</span> <span class="string">China</span></span><br></pre></td></tr></table></figure>
-
-<p>输出：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;class &#x27;list&#x27;&gt;</span><br><span class="line">[&#123;&#x27;name&#x27;: &#x27;zhangsan&#x27;, &#x27;age&#x27;: 30, &#x27;nation&#x27;: &#x27;China&#x27;&#125;,</span><br><span class="line"> &#123;&#x27;name&#x27;: &#x27;lisi&#x27;, &#x27;age&#x27;: 20, &#x27;nation&#x27;: &#x27;China&#x27;&#125;]</span><br></pre></td></tr></table></figure>
-
-<h2 id="pyYAML-Usage-1"><a href="#pyYAML-Usage-1" class="headerlink" title="pyYAML Usage"></a>pyYAML Usage</h2><h3 id="import-package"><a href="#import-package" class="headerlink" title="import package"></a>import package</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> yaml  <span class="comment"># import this package</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="load"><a href="#load" class="headerlink" title="load()"></a>load()</h3><blockquote>
-<p>加载 yaml 文件，返回一个 pyYAML 对象，这个对象是一个包含了键值对的 <code>list</code> 或 <code>dict</code></p>
-</blockquote>
-<p>我们一般使用 <code>load()</code> 就够了</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> yaml</span><br><span class="line"><span class="keyword">from</span> yaml <span class="keyword">import</span> CLoader <span class="keyword">as</span> Loader</span><br><span class="line"></span><br><span class="line">f = <span class="built_in">open</span>(<span class="string">&#x27;parameters.yml&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">para = yaml.load(f, Loader)</span><br><span class="line">total_epoch = para[<span class="string">&#x27;total_epochs&#x27;</span>]</span><br><span class="line">batch_size = para[<span class="string">&#x27;batch_size&#x27;</span>]</span><br><span class="line">learning_rate = <span class="built_in">float</span>(para[<span class="string">&#x27;lr&#x27;</span>])</span><br><span class="line">target_acc = para[<span class="string">&#x27;target_acc&#x27;</span>]</span><br><span class="line">model_name = para[<span class="string">&#x27;model&#x27;</span>]</span><br><span class="line">dataset = para[<span class="string">&#x27;dataset&#x27;</span>]</span><br></pre></td></tr></table></figure>
-
-<h3 id="dump"><a href="#dump" class="headerlink" title="dump()"></a>dump()</h3><blockquote>
-<p>将键值对，转换成 yaml 格式</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>YAML</tag>
       </tags>
   </entry>
 </search>
